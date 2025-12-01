@@ -13,6 +13,7 @@ public class Player extends PhysicsBall {
 
     public Color color;
     public int baseSpeed = 55;
+    public double baseSprintModifier = 2;
     public int baseMaxSpeed = 250;
     public int baseJumpHeight = 550;
 
@@ -20,9 +21,12 @@ public class Player extends PhysicsBall {
     public float size = 30;
 
     public Keys keys = new Keys();
+    public Mouse mouse = new Mouse();
 
     public boolean airBorne = false;
     public float airBorneTimer = 0;
+
+    public boolean sprinting = false;
 
     public Player(Vector2 pos, Color color, PhysicsHandler handler) {
         super(25, 0.0, 5.0, 0L);
@@ -44,6 +48,8 @@ public class Player extends PhysicsBall {
         Key q = new Key(KeyEvent.VK_Q);
         Key e = new Key(KeyEvent.VK_E);
         Key x = new Key(KeyEvent.VK_X);
+        Key control = new Key(KeyEvent.VK_CONTROL);
+        Key shift = new Key(KeyEvent.VK_SHIFT);
 
         public Keys() {
             this.list.add(space);
@@ -54,6 +60,8 @@ public class Player extends PhysicsBall {
             this.list.add(q);
             this.list.add(e);
             this.list.add(x);
+            this.list.add(control);
+            this.list.add(shift);
         }
 
     }
@@ -67,13 +75,27 @@ public class Player extends PhysicsBall {
         }
     }
 
+    public class Mouse {
+        Vector2 pos = new Vector2();
+        List<Key> list = new ArrayList<>();
+        Key left = new Key(1);
+        Key middle = new Key(2);
+        Key right = new Key(3);
+
+        Mouse() {
+            this.list.add(left);
+            this.list.add(middle);
+            this.list.add(right);
+        }
+    }
+
     @Override
     public void draw(Graphics g) {
         Polygon shape = new Polygon();
 
         Vector2 v1 = pos.add(direction.rotate(120 * 0).scale(size));
-        Vector2 v2 = pos.add(direction.rotate(120 * 1).scale(size));
-        Vector2 v3 = pos.add(direction.rotate(120 * 2).scale(size));
+        Vector2 v2 = pos.add(direction.rotate(120 * 1).scale(size).sub(vel.scale(size / 1000)));
+        Vector2 v3 = pos.add(direction.rotate(120 * 2).scale(size).sub(vel.scale(size / 1000)));
 
         shape.addPoint((int) (v1.x), (int) (v1.y));
         shape.addPoint((int) (v2.x), (int) (v2.y));
@@ -101,6 +123,22 @@ public class Player extends PhysicsBall {
         }
     }
 
+    public void mousePress(int mouseCode) {
+        for (Key k : mouse.list) {
+            if (k.code == mouseCode) {
+                k.pressed = true;
+            }
+        }
+    }
+
+    public void mouseRelease(int mouseCode) {
+        for (Key k : mouse.list) {
+            if (k.code == mouseCode) {
+                k.pressed = false;
+            }
+        }
+    }
+
     public void handleInputs() {
         if (keys.space.pressed && !airBorne) { // must be on the ground or in coyote timer
             // jump
@@ -110,16 +148,18 @@ public class Player extends PhysicsBall {
 
         // walk left
         if (keys.a.pressed) {
-            if (vel.x > -baseMaxSpeed) {
-                vel.x -= baseSpeed;
+            if (vel.x > (sprinting ? -baseMaxSpeed * baseSprintModifier : -baseMaxSpeed)) {
+                vel.x -= sprinting ? baseSpeed * baseSprintModifier : baseSpeed;
             }
         }
         // walk right
         if (keys.d.pressed) {
-            if (vel.x < baseMaxSpeed) {
-                vel.x += baseSpeed;
+            if (vel.x < (sprinting ? baseMaxSpeed * baseSprintModifier : baseMaxSpeed)) {
+                vel.x += sprinting ? baseSpeed * baseSprintModifier : baseSpeed;
             }
         }
+
+        sprinting = keys.control.pressed;
     }
 
     public void updateTimers(double dt) {
@@ -146,6 +186,9 @@ public class Player extends PhysicsBall {
             vel.x *= 0.85;
         }
         updateTimers(dt);
+
+        direction.set(mouse.pos.sub(pos));
+        direction.normalizeLocal();
     }
 
     public class LandingListener extends CollisionListener {

@@ -60,6 +60,19 @@ public class Panel extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D) g;
+        // antialias
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        // quality over speed, better gradients
+        // g2.setRenderingHint(RenderingHints.KEY_RENDERING,
+        // RenderingHints.VALUE_RENDER_QUALITY);
+        // sharper lines
+        g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
+        // smoother images
+        // g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+        // RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
         draw(g);
     }
 
@@ -111,16 +124,12 @@ public class Panel extends JPanel implements ActionListener {
     public class MyMouseAdapter extends MouseAdapter {
         @Override
         public void mousePressed(MouseEvent e) {
-            lastMouseButton = e.getButton();
-            // you can check modifiers:
-            // boolean shift = (e.getModifiersEx() & MouseEvent.SHIFT_DOWN_MASK) != 0;
-            // System.out.println("Pressed button " + lastMouseButton + (shift ? " with
-            // SHIFT" : ""));
+            player.mousePress(e.getButton());
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            // handle release
+            player.mouseRelease(e.getButton());
         }
 
         @Override
@@ -155,6 +164,7 @@ public class Panel extends JPanel implements ActionListener {
 
     private void mouseMovedOrDragged(MouseEvent e) {
         mousePos.set(e.getX(), e.getY());
+        player.mouse.pos.set(mousePos);
         // Optionally get global screen position:
         // Point screenPoint = e.getLocationOnScreen();
         // System.out.println("Screen pos: " + screenPoint.x + "," + screenPoint.y);
