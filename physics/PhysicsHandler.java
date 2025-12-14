@@ -11,9 +11,13 @@ public class PhysicsHandler {
 
     public double gravity = 980;
 
-    public Boundary boindaries;
+    public Boundary boundaries;
 
     public int chunkDimension = 25; // pixels
+    public Vector2 mapAnchor = new Vector2(); // map anchor controls the position from where the world is rendered, it
+                                              // doesnt affect chunk calculations
+    public Vector2 mapAnchorVelocity = new Vector2();
+    public PhysicsObject mainObject = null; // the main object is what the camera "follows"
 
     public Map<Long, Chunk> chunks = new HashMap<>();
     public List<PhysicsObject> objects = new ArrayList<>();
@@ -39,7 +43,7 @@ public class PhysicsHandler {
     private long nextId = 1L; // ids to keep track of objects
 
     public PhysicsHandler(int right, int top, int left, int bottom) {
-        this.boindaries = new Boundary(right, top, left, bottom);
+        this.boundaries = new Boundary(right, top, left, bottom);
     }
 
     public class Boundary {
@@ -54,7 +58,7 @@ public class PhysicsHandler {
     }
 
     public void setBoundary(int left, int top, int right, int bottom) {
-        this.boindaries = new Boundary(left, right, top, bottom);
+        this.boundaries = new Boundary(left, right, top, bottom);
     }
 
     // get key for a chunk
@@ -68,8 +72,8 @@ public class PhysicsHandler {
     }
 
     public void updateObjectsChunk(PhysicsObject o) {
-        int ncx = (int) Math.floor(o.pos.x / chunkDimension);
-        int ncy = (int) Math.floor(o.pos.y / chunkDimension);
+        int ncx = (int) (Math.floor(o.pos.x / chunkDimension));
+        int ncy = (int) (Math.floor(o.pos.y / chunkDimension));
 
         if (ncx == o.cx && ncy == o.cy)
             return;
@@ -109,6 +113,26 @@ public class PhysicsHandler {
     }
 
     public void updatePhysics(double dt) {
+        // move camera
+        if (mainObject != null) {
+            if (mainObject.pos.x < boundaries.left) {
+                mapAnchorVelocity.x -= 0.5;
+            }
+            if (mainObject.pos.x > boundaries.right) {
+                mapAnchorVelocity.x += 0.5;
+            }
+            if (mainObject.pos.y < boundaries.top) {
+                mapAnchorVelocity.y -= 0.5;
+            }
+            if (mainObject.pos.y > boundaries.bottom) {
+                mapAnchorVelocity.y += 0.5;
+            }
+
+            if (mapAnchorVelocity.lengthSquared() > 0.0001) {
+                mapAnchor.addLocal(mapAnchorVelocity.scale(dt));
+                mapAnchorVelocity.scaleLocal(0.9);
+            }
+        }
 
         for (PhysicsObject o : objects) {
             updateObjectsChunk(o);
@@ -137,6 +161,7 @@ public class PhysicsHandler {
 
         for (PhysicsObject o : objects) {
             o.update(gravity, dt);
+            o.pos.subLocal(mapAnchorVelocity);
         }
     }
 
@@ -228,8 +253,10 @@ public class PhysicsHandler {
     }
 
     public void addBall(PhysicsBall ball) {
-        ball.id = nextId++;
-        objects.add(ball);
+        if (!objects.contains(ball)) {
+            ball.id = nextId++;
+            objects.add(ball);
+        }
     }
 
     public void addRect(int x, int y, int width, int height) {
@@ -284,10 +311,10 @@ public class PhysicsHandler {
         // draw grid
         g.setColor(Color.gray);
         for (int i = 0; i < scrWidth / chunkDimension; i++) {
-            g.drawLine(i * chunkDimension, 0, i * chunkDimension, scrHeight);
+            g.drawLine(i * chunkDimension, 0, i * chunkDimension, scrHeight); // vertical
         }
         for (int i = 0; i < scrHeight / chunkDimension; i++) {
-            g.drawLine(0, i * chunkDimension, scrWidth, i * chunkDimension);
+            g.drawLine(0, i * chunkDimension, scrWidth, i * chunkDimension); // horizontal
         }
         // g.fillRect(scrWidth / 2 - 5, scrHeight / 2 - 5, 10, 10); // point middle
     }

@@ -32,14 +32,16 @@ public class Panel extends JPanel implements ActionListener {
     // constructor
     Panel() {
         random = new Random();
-        handler = new PhysicsHandler(0, 0, SCR_WIDTH, SCR_HEIGHT);
+        handler = new PhysicsHandler(100, 100, SCR_WIDTH - 100, SCR_HEIGHT - 100);
         player = new Player(new Vector2(SCR_WIDTH / 2, SCR_HEIGHT / 2), Color.cyan, handler);
-        handler.addRect(SCR_WIDTH / 2, SCR_HEIGHT - 100, SCR_WIDTH, 50);
+        handler.mainObject = player;
+        handler.addRect(SCR_WIDTH / 2, SCR_HEIGHT - 100, SCR_WIDTH * 2, 50);
         handler.addRect(SCR_WIDTH / 2 - 100, SCR_HEIGHT - 200, 500, 50);
         handler.addRect(SCR_WIDTH / 2 + 150, SCR_HEIGHT - 275, 100, 100);
         handler.addRect(SCR_WIDTH / 2 + 200, SCR_HEIGHT - 500, 250, 100);
-        handler.addBall(SCR_WIDTH / 2 + 100, SCR_HEIGHT / 2 - 100, 40, 0.9);
-
+        for (int i = 0; i < 10; i++) {
+            handler.addBall(SCR_WIDTH / 2 + 100, SCR_HEIGHT / 2 - 100, 40, 0.9);
+        }
         this.setPreferredSize(new Dimension(SCR_WIDTH, SCR_HEIGHT));
         this.setBackground(new Color(12, 13, 20));
         this.setFocusable(true);
