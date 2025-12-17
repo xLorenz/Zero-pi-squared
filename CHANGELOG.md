@@ -21,17 +21,18 @@ Added atialiasing to the main [paintComponent] in [Panel] class.
 [Player]'s polygon's points now react to [Player.vel].
 
 
+
 ### Camera Movement
 [Vector2 mapAnchor] of [PhysicsHandler] now responds to [Vector2 mapAnchorVelocity] in [updatePhysics()]. 
 
 [PhysicsHandler] now accepts a [PhysicsObject mainObject], on which position will update [mapAnchorVelocity] when out of [Boundary boundaries]
-<<<<<<< HEAD
 
-- Camera Movement 2
+
+
+### Camera Movement 2
 [mapAnchor] in now tied to the origin of the objects and affect chunk calculations. [mapAnchor] and objects position have [Vector2 mapAnchorVelocityScaled] added every loop in [updatePhysics()]. 
->    public double anchorFollowVelocity = 20;
->   public double anchorFollowFriction = 0.97;
+
+- public double anchorFollowVelocity = 20;
+- public double anchorFollowFriction = 0.97;
 
 [drawRecordedChunks(Graphics g)] function added, it will display yellow borders on chunk that have been loaded to the hash map, and fill active chunks green. 
-=======
->>>>>>> 35afd91abf6b51af523ed1448259ed8170895e5a
