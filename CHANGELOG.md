@@ -36,3 +36,31 @@ Added atialiasing to the main [paintComponent] in [Panel] class.
 - public double anchorFollowFriction = 0.97;
 
 [drawRecordedChunks(Graphics g)] function added, it will display yellow borders on chunk that have been loaded to the hash map, and fill active chunks green. 
+
+
+
+### Enemy Structure
+
+Separated [class Controller] from [Player], the class contains all the keys and mouse info and methods to update them. 
+
+[Player] and [Controller] moved to [/player] directory.
+
+[/enemies] directory contains all enemy code.
+
+[abstract class Enemy] attributes
+
+- public static PhysicsHandler handler;
+- public int health;
+- public int damage;
+- public Vector2 target = new Vector2();
+- public Player player;
+
+Methods
+
+- public void pathToPlayer()
+- public void jumpTowardsTarget()
+- public void damage(int damage)
+- public void kill() // rewards and remove()
+- public void remove() // remove from Enemy list and handler objects
+
+[class Normie extends Enemy] added.

@@ -3,6 +3,8 @@ package src;
 import javax.swing.*;
 
 import physics.*;
+import player.Player;
+import enemies.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -33,8 +35,13 @@ public class Panel extends JPanel implements ActionListener {
     Panel() {
         random = new Random();
         handler = new PhysicsHandler(100, 100, SCR_WIDTH - 100, SCR_HEIGHT - 100);
+
+        Enemy.handler = handler;
+        Normie enemy = new Normie(new Vector2(SCR_WIDTH / 2, SCR_HEIGHT / 2));
+
         player = new Player(new Vector2(SCR_WIDTH / 2, SCR_HEIGHT / 2), Color.cyan, handler);
         handler.mainObject = player;
+
         handler.addRect(SCR_WIDTH / 2, SCR_HEIGHT - 100, SCR_WIDTH * 2, 50);
         handler.addRect(SCR_WIDTH / 2 - 100, SCR_HEIGHT - 200, 500, 50);
         handler.addRect(SCR_WIDTH / 2 + 150, SCR_HEIGHT - 275, 100, 100);
@@ -42,6 +49,7 @@ public class Panel extends JPanel implements ActionListener {
         for (int i = 0; i < 10; i++) {
             handler.addBall(SCR_WIDTH / 2 + 100, SCR_HEIGHT / 2 - 100, 40, 0.9);
         }
+
         this.setPreferredSize(new Dimension(SCR_WIDTH, SCR_HEIGHT));
         this.setBackground(new Color(12, 13, 20));
         this.setFocusable(true);
@@ -114,24 +122,24 @@ public class Panel extends JPanel implements ActionListener {
     public class MyKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
-            player.keyPress(e.getKeyCode());
+            player.controller.keyPress(e.getKeyCode());
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            player.keyRelease(e.getKeyCode());
+            player.controller.keyRelease(e.getKeyCode());
         }
     }
 
     public class MyMouseAdapter extends MouseAdapter {
         @Override
         public void mousePressed(MouseEvent e) {
-            player.mousePress(e.getButton());
+            player.controller.mousePress(e.getButton());
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            player.mouseRelease(e.getButton());
+            player.controller.mouseRelease(e.getButton());
         }
 
         @Override
@@ -166,7 +174,7 @@ public class Panel extends JPanel implements ActionListener {
 
     private void mouseMovedOrDragged(MouseEvent e) {
         mousePos.set(e.getX(), e.getY());
-        player.mouse.pos.set(mousePos);
+        player.controller.mouse.pos.set(mousePos);
         // Optionally get global screen position:
         // Point screenPoint = e.getLocationOnScreen();
         // System.out.println("Screen pos: " + screenPoint.x + "," + screenPoint.y);
