@@ -102,3 +102,12 @@ Added a few enemy types as examples:
 - Jumper: blue, 10 health,  25 radius, 70º jump, 1500 max jump, 2.5s jump cd
 
 [class Panel] now allows to accelerate [class PhysicsHandler] [anchorVelocity] inside [class MyKeyAdapter]. 
+
+
+
+### Enemies VFX
+
+[class Enemy] will now only decrease [jumpTimer] if not airborne.
+
+[class Enemy] now overrides [class PhysicsBall][draw(Graphics g)] giving enemies a "bouncy" look, modifyign the oval's height based on [vel.y]
+

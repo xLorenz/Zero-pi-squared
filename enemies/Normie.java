@@ -12,7 +12,7 @@ public class Normie extends Enemy {
 
         setAngle(45);
         this.maxJumpStrength = 500;
-        this.jumpCooldown = 2;
+        this.jumpCooldown = 0.5;
     }
 
 }

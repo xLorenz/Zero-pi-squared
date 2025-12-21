@@ -3,6 +3,7 @@ package enemies;
 import physics.*;
 import player.*;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,13 @@ public abstract class Enemy extends PhysicsBall {
     }
 
     @Override
+    public void draw(Graphics g) {
+        g.setColor(displayColor);
+        g.fillOval((int) (pos.x - radius), (int) (pos.y - radius), radius * 2,
+                (int) ((radius * 2) - Math.min(vel.y * 0.02, radius)));
+    }
+
+    @Override
     public void update(double gravity, double dt) {
         vel.y += gravity * dt;
         pos.addLocal(vel.scale(dt));
@@ -54,11 +62,13 @@ public abstract class Enemy extends PhysicsBall {
             jumpTowardsTarget(pathToPlayer());
             jumpTimer = jumpCooldown;
         }
+        airBorne = true;
     }
 
     public void updateTimers(double dt) {
-        if (jumpTimer > 0 && !airBorne) {
-            jumpTimer -= dt;
+        if (jumpTimer > 0) {
+            if (!airBorne)
+                jumpTimer -= dt;
         } else {
             jumpTimer = 0;
         }

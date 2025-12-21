@@ -42,13 +42,13 @@ public class Panel extends JPanel implements ActionListener {
         Enemy.player = player;
         handler.mainObject = player;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Normie enemy = new Normie(new Vector2(SCR_WIDTH / 2, SCR_HEIGHT / 2));
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Speedster enemy = new Speedster(new Vector2(SCR_WIDTH / 2, SCR_HEIGHT / 2));
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Jumper enemy = new Jumper(new Vector2(SCR_WIDTH / 2, SCR_HEIGHT / 2));
         }
 

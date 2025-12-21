@@ -12,6 +12,6 @@ public class Speedster extends Enemy {
 
         setAngle(30);
         this.maxJumpStrength = 1000;
-        this.jumpCooldown = 0.5;
+        this.jumpCooldown = 0.1;
     }
 }

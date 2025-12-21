@@ -12,7 +12,7 @@ public class Jumper extends Enemy {
 
         setAngle(70);
         this.maxJumpStrength = 1500;
-        this.jumpCooldown = 2.5;
+        this.jumpCooldown = 0.75;
     }
 
 }
