@@ -223,3 +223,11 @@ Updated /physics, adding a physics update thread, unified Batch Rendering and si
 ### Area triggers and single press keys
 
 Implemented [AreaCircle] extends [PhysicsBall] and [AreaRect] extends [PhysicsRect]. Both act as area triggers, no collisions, but still detect collisions. Use [getCollisions()] to get a snapshot of the list of collisions.
+
+### PlaceBlock and vfx additions
+
+Added new Vector2.random static method, based around a center, min radius and max radius
+
+Used new Vector2.random in new emitter for SimpleParticle, emitCircle(Vector2 centre, int minRadius, int maxRadius, ...)
+
+Implemented new skill PlaceBlock. It places a chunk aligned block that disappears after 10 seconds. 
