@@ -64,6 +64,12 @@ public class Vector2 {
         return random(corner1.x, corner2.x, corner1.y, corner2.y);
     }
 
+    public static Vector2 random(Vector2 center, double minRadius, double maxRadius) {
+        double radius = ThreadLocalRandom.current().nextDouble(minRadius, maxRadius);
+        double angle = ThreadLocalRandom.current().nextDouble(0, 360);
+        return center.add(new Vector2(1, 0).rotate(angle).scale(radius));
+    }
+
     public Vector2 set(double x, double y) {
         this.x = x;
         this.y = y;

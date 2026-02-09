@@ -104,15 +104,15 @@ public class GameCanvas extends Canvas implements Runnable {
         Enemy.player = player;
 
         // spawn test enemies
-        for (int i = 0; i < 20; i++) {
-            new Normie(new Vector2(size.width / 2, -100));
-        }
-        for (int i = 0; i < 20; i++) {
-            new Speedster(new Vector2(size.width / 2, -120));
-        }
-        for (int i = 0; i < 20; i++) {
-            new Jumper(new Vector2(size.width / 2, -140));
-        }
+        // for (int i = 0; i < 20; i++) {
+        // new Normie(new Vector2(size.width / 2, -100));
+        // }
+        // for (int i = 0; i < 20; i++) {
+        // new Speedster(new Vector2(size.width / 2, -120));
+        // }
+        // for (int i = 0; i < 20; i++) {
+        // new Jumper(new Vector2(size.width / 2, -140));
+        // }
 
         // add "terrain"
         handler.addRect(new Vector2(size.width / 2, size.height + 150), size.width * 10, 500); // bottom

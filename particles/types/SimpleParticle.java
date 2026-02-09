@@ -44,6 +44,15 @@ public class SimpleParticle extends Particle {
         handler.addParticle(p);
     }
 
+    public static void emitCircle(Vector2 center, int minRadius, int maxRadius, double speed, Color color, double size,
+            double life,
+            int ammount) {
+        for (int i = 0; i < ammount; i++) {
+            Vector2 p = Vector2.random(center, minRadius, maxRadius);
+            SimpleParticle.emit(p, p.sub(center).scale(speed), size, life, color);
+        }
+    }
+
     @Override
     public void draw(BatchRenderer renderer) {
         // fade out

@@ -7,7 +7,7 @@ import player.Player;
 
 public class DoubleJump extends Skill {
 
-    double thresholdForActivation = 0.0;
+    double thresholdForActivation = 0.1;
     boolean used = false;
 
     public DoubleJump() {

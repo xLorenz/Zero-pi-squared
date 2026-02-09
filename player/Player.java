@@ -41,7 +41,7 @@ public class Player extends PhysicsBall {
     private AreaCircle area2;
 
     public Player(Vector2 pos, Color color, PhysicsHandler handler) {
-        super(25, 0.1, 10.0, 0L);
+        super(25, 0.05, 10.0, 0L);
         this.pos = pos;
         this.color = color;
 
@@ -49,6 +49,7 @@ public class Player extends PhysicsBall {
         this.skillsManager = new SkillsManager(this);
         skillsManager.addSkill(new Sprint());
         skillsManager.addSkill(new DoubleJump());
+        skillsManager.addSkill(new PlaceBlock(handler));
 
         this.forceAwake = true;
         this.friction = 0.0;
@@ -65,7 +66,6 @@ public class Player extends PhysicsBall {
 
     @Override
     public void draw(BatchRenderer renderer) {
-        drawDebug(renderer);
         Vector2[] points = {
                 pos.add(direction.rotate(120 * 0).scale(radius * 1.5)),
                 pos.add(direction.rotate(120 * 1).scale(radius * 1.5).sub(vel.scale(radius * 1.5 / 1000))),
@@ -100,10 +100,14 @@ public class Player extends PhysicsBall {
         if (rand.nextInt(200) == 1)
             SimpleBackgroundParticle.emit(pos.add(Vector2.random(-1000, 1000, -1000, 1000)));
 
-        if (area.getCollisions().contains(this))
+        if (area.getCollisions().contains(this)) {
+            SimpleParticle.emitCircle(area.pos, 10, 11, 10, color, 2, 1.0, 20);
             vel.y = -baseJumpStrength * 2;
-        if (area2.getCollisions().contains(this))
-            PhysicsParticle.emit(area2.pos, Vector2.random(-100, 100, -300, -500), 1, 2, color);
+        }
+
+        if (area2.getCollisions().contains(this)) {
+            SimpleParticle.emitCircle(area2.pos, 99, 100, 1, color, 1, 1.5, 5);
+        }
     }
 
     public void handleInputs(double dt) {
@@ -143,7 +147,7 @@ public class Player extends PhysicsBall {
         if (!supported) {
             airBorneTimer += dt;
         } else {
-            airBorneTimer = 0;
+            airBorneTimer = 0.0;
         }
         healthManager.updateTimers(dt);
         skillsManager.updateTimers(dt);
@@ -167,8 +171,8 @@ public class Player extends PhysicsBall {
                 if (con.y > pos.y) // make sure it collided under player
                     c = true;
             }
-            if (airBorneTimer > 0 && c) { // if the player has been falling
-                for (int i = 0; i < airBorneTimer * 10; i++) {
+            if (vel.y > 0 && c) { // if the player has been falling
+                for (int i = 0; i < vel.y / 20; i++) {
                     SimpleParticle.emit(new Vector2(pos.x, pos.y + radius)); // emit particles
                 }
             }
