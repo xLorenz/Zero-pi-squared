@@ -112,8 +112,8 @@ public class Controller {
                 if (!k.pressed) {
                     k.singlePress = true;
                 }
+                k.pressed = true;
             }
-            k.pressed = true;
         }
     }
 

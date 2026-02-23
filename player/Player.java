@@ -57,9 +57,9 @@ public class Player extends PhysicsBall {
         handler.addObject(this);
         this.handler = handler;
 
-        area = new AreaRect(new Vector2(1000, 300), 100, 20);
+        area = new AreaRect(new Vector2(800, 300), 100, 20);
         handler.addObject(area);
-        area2 = new AreaCircle(new Vector2(500, 500), 100);
+        area2 = new AreaCircle(new Vector2(0, -150), 100);
         handler.addObject(area2);
 
     }
@@ -113,7 +113,7 @@ public class Player extends PhysicsBall {
     public void handleInputs(double dt) {
         // jump
 
-        if (supported && airBorneTimer == 0.0) {
+        if (supported || airBorneTimer <= 0.2) {
             if (controller.keys.space.singlePress()) {
                 // must be on the ground or in coyote timer
                 vel.set(new Vector2(vel.x, -baseJumpStrength));

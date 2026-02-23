@@ -30,7 +30,7 @@ public class GameCanvas extends Canvas implements Runnable {
 
     private PhysicsHandler handler = new PhysicsHandler();
     private ParticleHandler particleHandler = new ParticleHandler(handler);
-    private Player player = new Player(new Vector2(size.width / 2, 0), Color.cyan, handler);
+    private Player player = new Player(new Vector2(0, 0), Color.cyan, handler);
 
     private Thread updaterThread;
     private Thread gameThread;
@@ -105,13 +105,13 @@ public class GameCanvas extends Canvas implements Runnable {
 
         // spawn test enemies
         // for (int i = 0; i < 20; i++) {
-        // new Normie(new Vector2(size.width / 2, -100));
+        // new Normie(Vector2.random(-2000, 2000, -1000, -900));
         // }
         // for (int i = 0; i < 20; i++) {
-        // new Speedster(new Vector2(size.width / 2, -120));
+        // new Speedster(Vector2.random(-2000, 2000, -1000, -900));
         // }
         // for (int i = 0; i < 20; i++) {
-        // new Jumper(new Vector2(size.width / 2, -140));
+        // new Jumper(Vector2.random(-2000, 2000, -1000, -900));
         // }
 
         // add "terrain"
@@ -124,7 +124,8 @@ public class GameCanvas extends Canvas implements Runnable {
         handler.addRect(new Vector2(size.width / 2 + 150, size.height - 275), 100, 100);
         handler.addRect(new Vector2(size.width / 2 + 300, size.height - 375), 250, 100);
         handler.addRect(new Vector2(size.width / 2 - 300, size.height - 400), 300, 25);
-        handler.addRect(new Vector2(size.width / 2 - 0, size.height - 712), 300, 25);
+        handler.addRect(new Vector2(0, size.height - 712), 300, 25);
+        handler.addRect(new Vector2(0, size.height - 850), 300, 25);
 
     }
 
