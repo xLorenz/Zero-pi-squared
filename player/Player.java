@@ -50,6 +50,7 @@ public class Player extends PhysicsBall {
         skillsManager.addSkill(new Sprint());
         skillsManager.addSkill(new DoubleJump());
         skillsManager.addSkill(new PlaceBlock(handler));
+        skillsManager.addSkill(new Grenade(handler));
 
         this.forceAwake = true;
         this.friction = 0.0;
@@ -101,7 +102,14 @@ public class Player extends PhysicsBall {
             SimpleBackgroundParticle.emit(pos.add(Vector2.random(-1000, 1000, -1000, 1000)));
 
         if (area.getCollisions().contains(this)) {
-            SimpleParticle.emitCircle(area.pos, 10, 11, 10, color, 2, 1.0, 20);
+            // SimpleParticle.emitCircle(area.pos, 10, 11, 10, color, 2, 1.0, 20);
+            ExplosionParticle.emit(area.pos, 2, Color.gray);
+            ExplosionParticle.emit(area.pos, 1, Color.orange);
+            SimpleParticle.emitCircle(area.pos, 10, 30, 40, Color.gray, 2, 1.0, 5);
+            SimpleParticle.emitCircle(area.pos, 10, 30, 20, Color.gray, 3, 1.5, 10);
+            SimpleParticle.emitCircle(area.pos, 10, 30, 5, Color.gray, 4, 1.5, 10);
+            SimpleParticle.emitCircle(area.pos, 10, 30, 2, Color.orange, 7, 0.5, 5);
+
             vel.y = -baseJumpStrength * 2;
         }
 

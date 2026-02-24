@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import player.*;
+import world.effects.Explosion;
 import enemies.*;
 import particles.ParticleHandler;
 import physics.process.PhysicsHandler;
@@ -102,17 +103,18 @@ public class GameCanvas extends Canvas implements Runnable {
         handler.display.setScreenCenter(new Vector2(size.width / 2, size.height / 2));
         Enemy.handler = handler;
         Enemy.player = player;
+        Explosion.handler = handler;
 
         // spawn test enemies
-        // for (int i = 0; i < 20; i++) {
-        // new Normie(Vector2.random(-2000, 2000, -1000, -900));
-        // }
-        // for (int i = 0; i < 20; i++) {
-        // new Speedster(Vector2.random(-2000, 2000, -1000, -900));
-        // }
-        // for (int i = 0; i < 20; i++) {
-        // new Jumper(Vector2.random(-2000, 2000, -1000, -900));
-        // }
+        for (int i = 0; i < 20; i++) {
+            new Normie(Vector2.random(-2000, 2000, -1000, -900));
+        }
+        for (int i = 0; i < 20; i++) {
+            new Speedster(Vector2.random(-2000, 2000, -1000, -900));
+        }
+        for (int i = 0; i < 20; i++) {
+            new Jumper(Vector2.random(-2000, 2000, -1000, -900));
+        }
 
         // add "terrain"
         handler.addRect(new Vector2(size.width / 2, size.height + 150), size.width * 10, 500); // bottom

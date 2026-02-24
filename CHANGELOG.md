@@ -231,3 +231,11 @@ Added new Vector2.random static method, based around a center, min radius and ma
 Used new Vector2.random in new emitter for SimpleParticle, emitCircle(Vector2 centre, int minRadius, int maxRadius, ...)
 
 Implemented new skill PlaceBlock. It places a chunk aligned block that disappears after 10 seconds. 
+
+### Explosions
+
+Added new [ExplosionParticle], instant 20 point polygon, orange by default.
+
+Added new [Explosion], a physics object extending AreaCircle, it emits particles and adds velocity according to its knockback to all colliding objects, then deletes itself.
+
+Added new [Grenade] skills. Left click to shoot out a Nade that will explode once its fuse runs out. 
