@@ -44,6 +44,43 @@ public class PhysicsParticle extends Particle {
         handler.addParticle(p);
     }
 
+    public static void emitCircle(Vector2 center, int minRadius, int maxRadius, double speed, Color color, double size,
+            double life,
+            int ammount) {
+        for (int i = 0; i < ammount; i++) {
+            Vector2 p = Vector2.random(center, minRadius, maxRadius);
+            PhysicsParticle.emit(p, p.sub(center).scale(speed), size, life, color);
+        }
+    }
+
+    public static void emitCircleAway(Vector2 pointAway, Vector2 center, int minRadius, int maxRadius, double speed,
+            Color color,
+            double size,
+            double life,
+            int ammount) {
+
+        for (int i = 0; i < ammount; i++) {
+            Vector2 p = Vector2.random(center, minRadius, maxRadius);
+            Vector2 diff = p.sub(pointAway);
+            PhysicsParticle.emit(p, diff.scale(speed * 10000 / diff.lengthSquared()), size, life, color);
+        }
+    }
+
+    public static void emitCircleAway(Vector2 pointAway, Vector2 center, int minRadius, int maxRadius, double speed,
+            Color color,
+            double minSize,
+            double maxSize,
+            double life,
+            int ammount) {
+
+        for (int i = 0; i < ammount; i++) {
+            Vector2 p = Vector2.random(center, minRadius, maxRadius);
+            Vector2 diff = p.sub(pointAway);
+            PhysicsParticle.emit(p, diff.scale(speed * 10000 / diff.lengthSquared()),
+                    minSize + rand.nextInt(1 + (int) Math.abs(maxSize - minSize)), life, color);
+        }
+    }
+
     @Override
     public void draw(BatchRenderer renderer) {
         // fade out

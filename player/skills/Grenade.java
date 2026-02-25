@@ -56,7 +56,7 @@ public class Grenade extends Skill {
             if (n.fuse <= 0) {
                 removeQueue.add(n);
                 handler.removeObject(n);
-                Explosion.emit(n.pos, 200, 1, 5.0);
+                Explosion.emit(n.pos, 200, 100, 5.0);
             }
         }
         for (Nade n : removeQueue) {

@@ -48,6 +48,7 @@ public class Explosion extends AreaCircle {
                 Vector2 distance = o.pos.sub(pos);
                 o.vel.addLocal(distance.scale(knockBack * 100 / distance.length()));
             }
+            o.damage(damage, pos);
         }
     }
 

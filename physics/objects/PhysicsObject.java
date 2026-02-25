@@ -41,6 +41,12 @@ public abstract class PhysicsObject {
     public Color displayColorDarker = displayColor.darker();
     private CollisionListener collisionListener = null;
 
+    public void damage(double ammount) {
+    }
+
+    public void damage(double ammount, Vector2 damageOrigin) {
+    }
+
     PhysicsObject(long id) {
         this.id = id;
     }

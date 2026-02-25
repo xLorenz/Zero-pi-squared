@@ -8,14 +8,13 @@ import physics.structures.Contact;
 import player.Player;
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.List;
 
 import particles.types.PhysicsParticle;
 
 public abstract class Enemy extends PhysicsBall {
 
     public static PhysicsHandler handler;
-    public static List<Enemy> enemies = new ArrayList<Enemy>();
+    public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     public static Player player;
 
     public Vector2 target = new Vector2();
@@ -131,7 +130,8 @@ public abstract class Enemy extends PhysicsBall {
         supported = false;
     }
 
-    public void damage(int ammount) {
+    @Override
+    public void damage(double ammount) {
 
         health -= ammount;
         if (health < 0) {
@@ -140,12 +140,26 @@ public abstract class Enemy extends PhysicsBall {
         }
     }
 
+    @Override
+    public void damage(double ammount, Vector2 damageOrigin) {
+        health -= ammount;
+        if (health < 0) {
+            health = 0;
+            kill(damageOrigin);
+        }
+
+    }
+
     public void kill() {
         // rewards and remove()
         remove();
-        for (int i = 0; i < 20; i++)
-            PhysicsParticle.emit(pos, Vector2.random(-100, 100, -100, 100), radius / 10, 10,
-                    displayColor);
+        PhysicsParticle.emitCircle(pos, 1, radius, 10, displayColor, radius / 15, 2, radius / 2);
+    }
+
+    public void kill(Vector2 damageOrigin) {
+        remove();
+        PhysicsParticle.emitCircleAway(damageOrigin, pos, 1, radius, 10, displayColor, radius / 15, radius / 10, 2,
+                radius / 2);
     }
 
     public void remove() {

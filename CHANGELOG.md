@@ -239,3 +239,11 @@ Added new [ExplosionParticle], instant 20 point polygon, orange by default.
 Added new [Explosion], a physics object extending AreaCircle, it emits particles and adds velocity according to its knockback to all colliding objects, then deletes itself.
 
 Added new [Grenade] skills. Left click to shoot out a Nade that will explode once its fuse runs out. 
+
+### Explosions damage
+
+Now [damage()] will work across all PhysicsObjects. 
+
+Added [damage(int ammount, Vector2 damageOrigin)] for physicsObjects
+
+added [kill(Vector2 origin)] for enemies, coupling with the [emitCircleAway()] method for PhysicParticles. 
