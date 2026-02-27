@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.util.Random;
 
 import particles.types.*;
-import physics.objects.AreaCircle;
-import physics.objects.AreaRect;
 import physics.objects.PhysicsBall;
 import physics.process.BatchRenderer;
 import physics.process.PhysicsHandler;
@@ -14,6 +12,7 @@ import physics.structures.Manifold;
 import physics.objects.PhysicsRect;
 import physics.collisions.Collision;
 import player.skills.*;
+import player.weapons.Gun;
 
 public class Player extends PhysicsBall {
 
@@ -37,8 +36,7 @@ public class Player extends PhysicsBall {
 
     public double airBorneTimer = 0.0;
 
-    private AreaRect area;
-    private AreaCircle area2;
+    public Gun gun;
 
     public Player(Vector2 pos, Color color, PhysicsHandler handler) {
         super(25, 0.05, 10.0, 0L);
@@ -50,18 +48,15 @@ public class Player extends PhysicsBall {
         skillsManager.addSkill(new Sprint(controller.keys.control));
         skillsManager.addSkill(new DoubleJump(controller.keys.space));
         skillsManager.addSkill(new PlaceBlock(controller.mouse.right, handler));
-        skillsManager.addSkill(new Grenade(controller.mouse.left, handler));
+        skillsManager.addSkill(new Grenade(controller.keys.x, handler));
+
+        this.gun = new Gun(0.1, 10, controller.mouse.left, this, handler);
 
         this.forceAwake = true;
         this.friction = 0.0;
 
         handler.addObject(this);
         this.handler = handler;
-
-        area = new AreaRect(new Vector2(800, 300), 100, 20);
-        handler.addObject(area);
-        area2 = new AreaCircle(new Vector2(0, -150), 100);
-        handler.addObject(area2);
 
     }
 
@@ -101,21 +96,6 @@ public class Player extends PhysicsBall {
         if (rand.nextInt(200) == 1)
             SimpleBackgroundParticle.emit(pos.add(Vector2.random(-1000, 1000, -1000, 1000)));
 
-        if (area.getCollisions().contains(this)) {
-            // SimpleParticle.emitCircle(area.pos, 10, 11, 10, color, 2, 1.0, 20);
-            ExplosionParticle.emit(area.pos, 2, Color.gray);
-            ExplosionParticle.emit(area.pos, 1, Color.orange);
-            SimpleParticle.emitCircle(area.pos, 10, 30, 40, Color.gray, 2, 1.0, 5);
-            SimpleParticle.emitCircle(area.pos, 10, 30, 20, Color.gray, 3, 1.5, 10);
-            SimpleParticle.emitCircle(area.pos, 10, 30, 5, Color.gray, 4, 1.5, 10);
-            SimpleParticle.emitCircle(area.pos, 10, 30, 2, Color.orange, 7, 0.5, 5);
-
-            vel.y = -baseJumpStrength * 2;
-        }
-
-        if (area2.getCollisions().contains(this)) {
-            SimpleParticle.emitCircle(area2.pos, 99, 100, 1, color, 1, 1.5, 5);
-        }
     }
 
     public void handleInputs(double dt) {
@@ -148,6 +128,7 @@ public class Player extends PhysicsBall {
 
         // skills
         skillsManager.handleInputs(controller);
+        gun.handleInputs();
         controller.update(dt);
     }
 
@@ -159,6 +140,7 @@ public class Player extends PhysicsBall {
         }
         healthManager.updateTimers(dt);
         skillsManager.updateTimers(dt);
+        gun.updateTimer(dt);
     }
 
     public void damage(int ammount) {

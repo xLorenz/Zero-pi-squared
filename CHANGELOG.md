@@ -294,3 +294,18 @@ Modified [Skill] to use a [Key] in the super() method. Added [setTriggerKey(Key 
     public void setTriggerKey(Key triggerKey) {
         this.triggerKey = triggerKey;
     }
+
+### Guns
+
+Added guns to the game!
+Simple [Gun] class, similar to skill, shoots [Bullet] with a cooldown based on a triggerKey. 
+
+    public void shoot() {
+        cooldownTime = coolDown;
+        handler.addObject(new Bullet(new Vector2(owner.pos.x, owner.pos.y),
+                new Vector2(owner.direction.x, owner.direction.y), bulletDamage, owner));
+    }
+
+Must call [updateTimer()] and [handleInputs()].
+
+[Bullet], similar to explosions, self deletes on contact with any PhysicsObject.
