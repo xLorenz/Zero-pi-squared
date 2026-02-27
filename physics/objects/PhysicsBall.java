@@ -52,10 +52,10 @@ public class PhysicsBall extends PhysicsObject {
     public int[] getOccuppiedChunks(int chunkDim) {
 
         int[] result = new int[4];
-        result[0] = (int) Math.floor((pos.x - radius) / chunkDim);
-        result[1] = (int) Math.floor((pos.x + radius) / chunkDim);
-        result[2] = (int) Math.floor((pos.y - radius) / chunkDim);
-        result[3] = (int) Math.floor((pos.y + radius) / chunkDim);
+        result[0] = (int) Math.floor((pos.x - radius) / chunkDim) - 1;
+        result[1] = (int) Math.floor((pos.x + radius) / chunkDim) + 1;
+        result[2] = (int) Math.floor((pos.y - radius) / chunkDim) - 1;
+        result[3] = (int) Math.floor((pos.y + radius) / chunkDim) + 1;
 
         return result;
     }

@@ -122,6 +122,8 @@ public class PhysicsUpdater implements Runnable {
     }
 
     private void updateObjectsChunks(PhysicsObject o) {
+        if (o.sleeping)
+            return;
 
         int chunkDimension = handler.chunkDimension;
 

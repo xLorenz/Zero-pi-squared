@@ -247,3 +247,37 @@ Now [damage()] will work across all PhysicsObjects.
 Added [damage(int ammount, Vector2 damageOrigin)] for physicsObjects
 
 added [kill(Vector2 origin)] for enemies, coupling with the [emitCircleAway()] method for PhysicParticles. 
+
+### Map generator
+
+Added [Generator.java] in /world/terrain.
+
+    Generator.loadMapImage(String filePath) : loads an image for map generation
+    Generator.generateMap() : Generates the map, based on the image, placing a chunk-aligned [Block] with the corresponding rgb value. rgb = 0,0,0 is void, ommited, rgb = 255,255,255 is ommited, could be used for feature placing, as well as other specific colors. 
+
+The class [Block] extends PhysicsRect. A chunk-aligned rect, placed based on the x, y chunk coords and a rgb value.  
+
+The image used for the map must not have an excesive ammount of pixels, as each Block is a PhysicsObject and iterates several times in the PhysicsUpdater thread, even if sleeping.
+
+Modified [PhysicsRect.getOccupiedChunks] so that only returns the rect the chunk actually occupies, instead of adding the surrounding ones.
+
+Modified [PhysicsBall.getOccupiedChunks] so that it returns occupied chunks with the surrounding ones. 
+
+These changes optimize looping time, as there will be more rects than circles. 
+
+Added particles to enemies jump, and set them as [forceAwake = true], as sleeping objects don't update.
+
+The [PlaceBlock] skill's rect is now properly chunk-aligned
+
+    Rect rect = new Rect(handler.chunkDimension - 1, handler.chunkDimension - 1, player.color);
+
+Explosions now explode only once, as they could update several times until removed. 
+
+    if (!exploded) {
+        explode();
+        emitParticles();
+        exploded = true;
+    }
+    handler.removeObject(this);
+
+Implemented a simple pixelart image, to use as a test map, it is really ugly. 

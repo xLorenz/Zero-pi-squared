@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import particles.types.PhysicsParticle;
+import particles.types.SimpleParticle;
 
 public abstract class Enemy extends PhysicsBall {
 
@@ -33,7 +34,7 @@ public abstract class Enemy extends PhysicsBall {
         super(radius, 0.8, 5.0, 0L);
         this.pos = pos;
         this.displayColor = color;
-
+        this.forceAwake = true;
         handler.addObject(this);
         enemies.add(this);
     }
@@ -127,6 +128,7 @@ public abstract class Enemy extends PhysicsBall {
 
         vel.set(cos, sin);
         vel.scaleLocal(jumpVelocity);
+        SimpleParticle.emitCircle(pos, 1, radius / 2, 2, displayColor, 1, 0.5, 20);
         supported = false;
     }
 

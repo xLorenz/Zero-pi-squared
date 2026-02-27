@@ -15,6 +15,7 @@ public class Explosion extends AreaCircle {
 
     double damage;
     double knockBack;
+    boolean exploded = false;
 
     public static void emit(Vector2 pos, int radius, double damage, double knockBack) {
         Explosion boom = new Explosion(pos, radius, damage, knockBack);
@@ -49,13 +50,17 @@ public class Explosion extends AreaCircle {
                 o.vel.addLocal(distance.scale(knockBack * 100 / distance.length()));
             }
             o.damage(damage, pos);
+
         }
     }
 
     @Override
     public void update(double dt) {
-        explode();
-        emitParticles();
+        if (!exploded) {
+            explode();
+            emitParticles();
+            exploded = true;
+        }
         handler.removeObject(this);
     }
 

@@ -55,7 +55,7 @@ public class PlaceBlock extends Skill {
             }
             if (allowed) {
 
-                Rect rect = new Rect(handler.chunkDimension, handler.chunkDimension, player.color);
+                Rect rect = new Rect(handler.chunkDimension - 1, handler.chunkDimension - 1, player.color);
                 rect.pos = new Vector2(x, y);
 
                 blocks.add(rect);
