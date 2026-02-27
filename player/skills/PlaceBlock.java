@@ -8,6 +8,7 @@ import physics.objects.PhysicsRect;
 import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.Controller;
+import player.Controller.Key;
 import player.Player;
 
 public class PlaceBlock extends Skill {
@@ -25,7 +26,8 @@ public class PlaceBlock extends Skill {
         }
     }
 
-    public PlaceBlock(PhysicsHandler handler) {
+    public PlaceBlock(Key triggerKey, PhysicsHandler handler) {
+        super(triggerKey);
         this.handler = handler;
 
         coolDownTime = 0.01;
@@ -86,7 +88,7 @@ public class PlaceBlock extends Skill {
 
     @Override
     public void handleInputs(Controller c) {
-        if (ready && c.mouse.right.pressed) {
+        if (ready && triggerKey.pressed) {
             active = true;
         }
     }

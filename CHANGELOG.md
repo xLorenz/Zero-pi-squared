@@ -281,3 +281,16 @@ Explosions now explode only once, as they could update several times until remov
     handler.removeObject(this);
 
 Implemented a simple pixelart image, to use as a test map, it is really ugly. 
+
+
+### Skill keys
+
+Modified [Skill] to use a [Key] in the super() method. Added [setTriggerKey(Key triggerKey)] to change skills trigger key.
+
+    protected Skill(Key triggerKey) {
+        this.triggerKey = triggerKey;
+    }
+
+    public void setTriggerKey(Key triggerKey) {
+        this.triggerKey = triggerKey;
+    }

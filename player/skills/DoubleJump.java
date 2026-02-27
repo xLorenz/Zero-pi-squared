@@ -3,6 +3,7 @@ package player.skills;
 import particles.types.SimpleParticle;
 import physics.structures.Vector2;
 import player.Controller;
+import player.Controller.Key;
 import player.Player;
 
 public class DoubleJump extends Skill {
@@ -10,7 +11,8 @@ public class DoubleJump extends Skill {
     double thresholdForActivation = 0.1;
     boolean used = false;
 
-    public DoubleJump() {
+    public DoubleJump(Key triggerKey) {
+        super(triggerKey);
         coolDownTime = 0;
         coolDown = coolDownTime;
         active = false;
@@ -55,7 +57,7 @@ public class DoubleJump extends Skill {
 
     @Override
     public void handleInputs(Controller c) {
-        if (c.keys.space.singlePress() && ready) {
+        if (triggerKey.singlePress() && ready) {
             active = true;
         }
     }

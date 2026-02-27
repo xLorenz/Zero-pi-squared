@@ -8,6 +8,7 @@ import physics.objects.PhysicsBall;
 import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.Controller;
+import player.Controller.Key;
 import player.Player;
 import world.effects.Explosion;
 
@@ -25,7 +26,8 @@ public class Grenade extends Skill {
         }
     }
 
-    public Grenade(PhysicsHandler handler) {
+    public Grenade(Key triggerKey, PhysicsHandler handler) {
+        super(triggerKey);
         this.handler = handler;
 
         coolDownTime = 0.5;
@@ -68,7 +70,7 @@ public class Grenade extends Skill {
 
     @Override
     public void handleInputs(Controller c) {
-        if (ready && c.mouse.left.pressed) {
+        if (ready && triggerKey.pressed) {
             active = true;
         }
     }

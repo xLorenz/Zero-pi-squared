@@ -47,10 +47,10 @@ public class Player extends PhysicsBall {
 
         this.healthManager = new HealthManager(100, 1.0);
         this.skillsManager = new SkillsManager(this);
-        skillsManager.addSkill(new Sprint());
-        skillsManager.addSkill(new DoubleJump());
-        skillsManager.addSkill(new PlaceBlock(handler));
-        skillsManager.addSkill(new Grenade(handler));
+        skillsManager.addSkill(new Sprint(controller.keys.control));
+        skillsManager.addSkill(new DoubleJump(controller.keys.space));
+        skillsManager.addSkill(new PlaceBlock(controller.mouse.right, handler));
+        skillsManager.addSkill(new Grenade(controller.mouse.left, handler));
 
         this.forceAwake = true;
         this.friction = 0.0;

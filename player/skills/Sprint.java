@@ -6,6 +6,7 @@ import particles.types.SimpleParticle;
 import physics.structures.Vector2;
 import player.Controller;
 import player.Player;
+import player.Controller.Key;
 
 public class Sprint extends Skill {
 
@@ -13,7 +14,8 @@ public class Sprint extends Skill {
 
     double thresholdForActivation = 1.5;
 
-    public Sprint() {
+    public Sprint(Key triggerKey) {
+        super(triggerKey);
         coolDownTime = 5;
         coolDown = coolDownTime;
         active = false;
@@ -58,7 +60,7 @@ public class Sprint extends Skill {
 
     @Override
     public void handleInputs(Controller c) {
-        if (c.keys.control.pressed) {
+        if (triggerKey.pressed) {
             if (coolDown > thresholdForActivation || active) {
                 active = true;
             }
