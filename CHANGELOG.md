@@ -309,3 +309,25 @@ Simple [Gun] class, similar to skill, shoots [Bullet] with a cooldown based on a
 Must call [updateTimer()] and [handleInputs()].
 
 [Bullet], similar to explosions, self deletes on contact with any PhysicsObject.
+
+
+### Path Traced Blocks
+
+Placeblock skill now traces a path between the las placed block and the current mouse position while active. This fixes the skill skipping tiles. 
+
+Implemented static methods in [Vector2]
+
+    // draws a line of tiles between two index coordinates
+    public static ArrayList<Vector2> drawTileLine(
+            int x0, int y0,
+            int x1, int y1)
+
+:
+
+    // draws a line of tiles between two world coordinates
+    public static ArrayList<Vector2> traceRay(
+            double x0, double y0,
+            double x1, double y1,
+            int tileSize)
+
+These set path to ray tracing implementations.

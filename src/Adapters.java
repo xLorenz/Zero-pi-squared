@@ -101,8 +101,9 @@ public class Adapters {
 
         private void mouseMovedOrDragged(MouseEvent e) {
 
-            mousePos.set(e.getX(), e.getY());
-            player.controller.mouse.pos.set(mousePos);
+            // mousePos.set(e.getX(), e.getY());
+            // player.controller.mouse.pos.set(mousePos);
+            player.controller.mouseMove(e.getX(), e.getY());
             // Optionally get global screen position:
             // Point screenPoint = e.getLocationOnScreen();
             // System.out.println("Screen pos: " + screenPoint.x + "," + screenPoint.y);

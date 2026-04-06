@@ -60,6 +60,7 @@ public class Controller {
     }
 
     public class Mouse {
+        public Vector2 lastPos = new Vector2();
         public Vector2 pos = new Vector2();
         public List<Key> list = new ArrayList<>();
         public Key left = new Key(1);
@@ -124,6 +125,11 @@ public class Controller {
                 k.singlePress = false;
             }
         }
+    }
+
+    public void mouseMove(int x, int y) {
+        mouse.lastPos.set(mouse.pos);
+        mouse.pos.set(x, y);
     }
 
 }

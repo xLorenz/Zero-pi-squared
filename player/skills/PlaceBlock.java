@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import particles.types.SimpleParticle;
 import physics.objects.PhysicsObject;
 import physics.process.PhysicsHandler;
+import physics.structures.Vector2;
 import player.Controller;
 import player.Controller.Key;
 import world.terrain.Block;
@@ -14,6 +15,7 @@ import player.Player;
 public class PlaceBlock extends Skill {
 
     private ArrayList<Rect> blocks = new ArrayList<>();
+    private Rect lastPlacedBlock;
     private PhysicsHandler handler;
 
     private class Rect extends Block {
@@ -38,32 +40,10 @@ public class PlaceBlock extends Skill {
     @Override
     public void update(double dt, Player player) {
         if (active) {
-            boolean allowed = true;
-            double mx = handler.display.getMapPos(player.controller.mouse.pos).x;
-            double my = handler.display.getMapPos(player.controller.mouse.pos).y;
-
-            int dx = (int) Math.floor(mx / handler.chunkDimension);
-            int dy = (int) Math.floor(my / handler.chunkDimension);
-
-            int x = (int) (dx * handler.chunkDimension + handler.chunkDimension / 2);
-            int y = (int) (dy * handler.chunkDimension + handler.chunkDimension / 2);
-
-            for (PhysicsObject o : handler.getUpdateObjectsSnapshot()) {
-                if (o.pos.x == x && o.pos.y == y) {
-                    allowed = false;
-                }
-            }
-            if (allowed) {
-
-                int cd = handler.chunkDimension;
-                Rect rect = new Rect((int) (x / cd), (int) (y / cd), player.color, cd);
-
-                blocks.add(rect);
-                handler.addObject(rect);
-
+            if (placeBlocks(player)) {
                 coolDown = coolDownTime;
 
-                ready = false;
+                // ready = false;
             }
         }
         active = false;
@@ -90,16 +70,68 @@ public class PlaceBlock extends Skill {
 
     }
 
+    private boolean placeBlocks(Player player) {
+
+        int cd = handler.chunkDimension;
+        // get chunk tile positions
+        // start
+        double mx = handler.display.getMapPos(player.controller.mouse.lastPos).x;
+        double my = handler.display.getMapPos(player.controller.mouse.lastPos).y;
+
+        if (lastPlacedBlock != null) {
+            mx = lastPlacedBlock.pos.x;
+            my = lastPlacedBlock.pos.y;
+        }
+
+        int x0 = (int) Math.floor(mx / cd);
+        int y0 = (int) Math.floor(my / cd);
+
+        // end
+        mx = handler.display.getMapPos(player.controller.mouse.pos).x;
+        my = handler.display.getMapPos(player.controller.mouse.pos).y;
+
+        int x1 = (int) Math.floor(mx / cd);
+        int y1 = (int) Math.floor(my / cd);
+
+        ArrayList<Vector2> list = Vector2.drawTileLine(x0, y0, x1, y1);
+        for (Vector2 v : list) {
+            boolean allowed = true;
+
+            int x = (int) (v.x * cd + cd / 2);
+            int y = (int) (v.y * cd + cd / 2);
+
+            for (PhysicsObject o : handler.getUpdateObjectsSnapshot()) {
+                if (o.pos.x == x && o.pos.y == y) {
+                    allowed = false;
+                }
+            }
+            if (allowed) {
+
+                Rect rect = new Rect((int) (x / cd), (int) (y / cd), player.color, cd);
+
+                blocks.add(rect);
+                handler.addObject(rect);
+
+                lastPlacedBlock = rect;
+            }
+        }
+        return !list.isEmpty();
+
+    }
+
     @Override
     public void handleInputs(Controller c) {
         if (ready && triggerKey.pressed) {
             active = true;
+        } else {
+            lastPlacedBlock = null;
+            // System.out.println("null");
         }
     }
 
     @Override
     public void updateTimer(double dt) {
-        if (coolDown < 0) {
+        if (coolDown <= 0) {
             coolDown = 0;
             ready = true;
         } else {
