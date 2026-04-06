@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import particles.types.SimpleParticle;
-import physics.objects.PhysicsRect;
+import physics.objects.PhysicsObject;
 import physics.process.PhysicsHandler;
-import physics.structures.Vector2;
 import player.Controller;
 import player.Controller.Key;
+import world.terrain.Block;
 import player.Player;
 
 public class PlaceBlock extends Skill {
@@ -16,13 +16,11 @@ public class PlaceBlock extends Skill {
     private ArrayList<Rect> blocks = new ArrayList<>();
     private PhysicsHandler handler;
 
-    private class Rect extends PhysicsRect {
-        public double life = 10.0;
+    private class Rect extends Block {
+        public double life = 10.0; // seconds
 
-        public Rect(int width, int height, Color color) {
-            super(width, height, 0, 0);
-            stationary = true;
-            displayColor = color;
+        public Rect(int x, int y, Color color, int chunkDimension) {
+            super(x, y, color.getRed(), color.getGreen(), color.getBlue(), chunkDimension);
         }
     }
 
@@ -50,15 +48,15 @@ public class PlaceBlock extends Skill {
             int x = (int) (dx * handler.chunkDimension + handler.chunkDimension / 2);
             int y = (int) (dy * handler.chunkDimension + handler.chunkDimension / 2);
 
-            for (PhysicsRect o : blocks) {
+            for (PhysicsObject o : handler.getUpdateObjectsSnapshot()) {
                 if (o.pos.x == x && o.pos.y == y) {
                     allowed = false;
                 }
             }
             if (allowed) {
 
-                Rect rect = new Rect(handler.chunkDimension - 1, handler.chunkDimension - 1, player.color);
-                rect.pos = new Vector2(x, y);
+                int cd = handler.chunkDimension;
+                Rect rect = new Rect((int) (x / cd), (int) (y / cd), player.color, cd);
 
                 blocks.add(rect);
                 handler.addObject(rect);
@@ -77,6 +75,12 @@ public class PlaceBlock extends Skill {
                 removeQueue.add(r);
                 handler.removeObject(r);
                 SimpleParticle.emitCircle(r.pos, r.width, r.width + 1, 2, r.displayColor, 1, 1, 10);
+            }
+            if (r.health <= 0) {
+                removeQueue.add(r);
+                handler.removeObject(r);
+                SimpleParticle.emitCircle(r.pos, r.width, r.width + 1, 2, r.displayColor, 1, 1, 10);
+
             }
         }
         for (Rect r : removeQueue) {

@@ -96,7 +96,7 @@ public class GameCanvas extends Canvas implements Runnable {
     }
 
     private void setUpGame() {
-        handler.chunkDimension = 32;
+        handler.chunkDimension = 31;
         handler.display.scale = 0.5;
         handler.display.followRadius = 100;
         handler.display.offsetAccel = 0.5;
@@ -124,25 +124,6 @@ public class GameCanvas extends Canvas implements Runnable {
         for (int i = 0; i < 20; i++) {
             new Jumper(Vector2.random(100, 5000, 2500, 2700));
         }
-
-        // // add "terrain"
-        // handler.addRect(new Vector2(size.width / 2, size.height + 150), size.width *
-        // 10, 500); // bottom
-        //
-        // handler.addRect(new Vector2(-size.width * 4, 0), 20, size.height * 2); //
-        // walls
-        // handler.addRect(new Vector2(size.width * 5, 0), 20, size.height * 2);
-        //
-        // handler.addRect(new Vector2(size.width / 2 - 100, size.height - 200), 500,
-        // 50);
-        // handler.addRect(new Vector2(size.width / 2 + 150, size.height - 275), 100,
-        // 100);
-        // handler.addRect(new Vector2(size.width / 2 + 300, size.height - 375), 250,
-        // 100);
-        // handler.addRect(new Vector2(size.width / 2 - 300, size.height - 400), 300,
-        // 25);
-        // handler.addRect(new Vector2(0, size.height - 712), 300, 25);
-        // handler.addRect(new Vector2(0, size.height - 850), 300, 25);
 
     }
 

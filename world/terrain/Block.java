@@ -12,7 +12,7 @@ public class Block extends PhysicsRect {
     public double health = 50;
 
     public Block(int x, int y, int r, int g, int b, int chunkDimension) {
-        super(chunkDimension - 1, chunkDimension - 1, 0, 0);
+        super(chunkDimension, chunkDimension, 0, 0);
         this.stationary = true;
         this.sleepFrames = 1;
 
