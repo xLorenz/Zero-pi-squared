@@ -17,7 +17,6 @@ public class NoCollisionBlock extends Block {
 
     public NoCollisionBlock(int x, int y, int r, int g, int b, int chunkDimension) {
         super(x, y, r, g, b, chunkDimension);
-        forceAwake = true;
     }
 
     public ArrayList<PhysicsObject> getCollisions() {

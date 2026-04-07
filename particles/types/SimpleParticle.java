@@ -53,11 +53,25 @@ public class SimpleParticle extends Particle {
         }
     }
 
+    public static void emitCircleAway(Vector2 pointAway, Vector2 center, int minRadius, int maxRadius, double speed,
+            Color color,
+            double size,
+            double life,
+            int ammount) {
+
+        for (int i = 0; i < ammount; i++) {
+            Vector2 p = Vector2.random(center, minRadius, maxRadius);
+            Vector2 diff = p.sub(pointAway);
+            SimpleParticle.emit(p, diff.scale(speed / diff.lengthSquared()), size, life, color);
+
+        }
+    }
+
     @Override
     public void draw(BatchRenderer renderer) {
         // fade out
         double lifeFrac = Math.max(0f, Math.min(1f, life / 2f));
-        int alpha = (int) (255 * lifeFrac);
+        int alpha = (int) (color.getAlpha() * lifeFrac);
 
         renderer.setFill(color, alpha);
         renderer.drawCircle(pos, (int) (radius * size));

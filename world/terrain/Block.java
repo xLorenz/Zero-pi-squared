@@ -2,9 +2,14 @@ package world.terrain;
 
 import java.awt.Color;
 
+import particles.types.SimpleParticle;
+import physics.objects.PhysicsBall;
+import physics.objects.PhysicsObject;
 import physics.objects.PhysicsRect;
 import physics.process.PhysicsHandler;
+import physics.structures.Manifold;
 import physics.structures.Vector2;
+import player.Player;
 
 public class Block extends PhysicsRect {
     public static PhysicsHandler handler;
@@ -42,6 +47,43 @@ public class Block extends PhysicsRect {
                 handler.removeObject(this);
             }
 
+        }
+    }
+
+    @Override
+    public Manifold collideWithCircle(PhysicsBall b) {
+
+        Manifold colision = super.collideWithCircle(b);
+
+        emitContactSmokeParticles(b, colision);
+
+        return colision;
+    }
+
+    @Override
+    public Manifold collide(PhysicsObject other) {
+        Manifold colision = super.collide(other);
+
+        emitContactSmokeParticles(other, colision);
+
+        return colision;
+
+    }
+
+    public void emitContactSmokeParticles(PhysicsObject b, Manifold colision) {
+
+        if (colision != null && b instanceof Player) {
+            // if (b.vel.lengthSquared() > 200000.0) {
+            if (colision.penetration > 1.0) {
+                SimpleParticle.emitCircleAway(
+                        pos.add(colision.normal.scale(0.5 * height * 0.9)),
+                        pos.add(colision.normal.scale(0.5 * height)),
+                        1, 2,
+                        b.vel.length() / 10,
+                        new Color(displayColor.getRed(), displayColor.getGreen(), displayColor.getBlue(), 50),
+                        2.5,
+                        2.0, (int) (b.vel.length() / 100));
+            }
         }
     }
 

@@ -8,9 +8,6 @@ import physics.objects.PhysicsBall;
 import physics.process.BatchRenderer;
 import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
-import physics.structures.Manifold;
-import physics.objects.PhysicsRect;
-import physics.collisions.Collision;
 import player.skills.*;
 import player.weapons.Gun;
 
@@ -149,25 +146,6 @@ public class Player extends PhysicsBall {
                 TriangleParticle.emit(pos);
             }
         }
-    }
-
-    @Override
-    public Manifold collideWithRect(PhysicsRect rect) {
-        // landing particles
-        Manifold m = Collision.circleRect(this, rect); // get collision with rect (terrain)
-        if (m != null) { // make sure it collided
-            Boolean c = false;
-            for (Vector2 con : m.contacts) {
-                if (con.y > pos.y) // make sure it collided under player
-                    c = true;
-            }
-            if (vel.y > 0 && c) { // if the player has been falling
-                for (int i = 0; i < vel.y / 20; i++) {
-                    SimpleParticle.emit(new Vector2(pos.x, pos.y + radius)); // emit particles
-                }
-            }
-        }
-        return m; // return Manifold
     }
 
 }

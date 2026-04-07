@@ -386,3 +386,32 @@ Generator will generate bushes on color 0,255,0 ( green ), and for every block, 
 
         }
     }
+
+
+### Bushes VFX
+
+Landing particles are now produced by the Block class.
+
+Bushes emit particles when a moving entity is colliding with it. 
+
+    
+    public void emitContactSmokeParticles(PhysicsObject b, Manifold colision) {
+
+        if (colision != null && b instanceof Player) {
+            // if (b.vel.lengthSquared() > 200000.0) {
+            if (colision.penetration > 1.0) {
+                SimpleParticle.emitCircleAway(
+                        pos.add(colision.normal.scale(0.5 * height * 0.9)),
+                        pos.add(colision.normal.scale(0.5 * height)),
+                        1, 2,
+                        b.vel.length() / 10,
+                        new Color(displayColor.getRed(), displayColor.getGreen(), displayColor.getBlue(), 50),
+                        2.5,
+                        2.0, (int) (b.vel.length() / 100));
+            }
+        }
+    }
+
+
+
+As of now, only the player emits particles with Blocks and Bushes, this uses [instanceof] for type-checking. Looking for a solution to keep OO design.
