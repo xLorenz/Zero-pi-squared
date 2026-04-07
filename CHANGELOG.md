@@ -352,4 +352,5 @@ Added ScreenShake, a singleton that manages screenshake in a given Display.
 - Explosions now create ScreenShake.
 - Shooting now create ScreenShake.
 - Placing Blocks now create ScreenShake.
+- Bullet collisions now create more visible PhysicsParticles.
 
