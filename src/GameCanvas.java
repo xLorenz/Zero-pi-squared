@@ -13,6 +13,7 @@ import javax.swing.SwingUtilities;
 
 import player.*;
 import world.effects.Explosion;
+import world.effects.ScreenShake;
 import world.terrain.Generator;
 import enemies.*;
 import particles.ParticleHandler;
@@ -98,14 +99,15 @@ public class GameCanvas extends Canvas implements Runnable {
     private void setUpGame() {
         handler.chunkDimension = 31;
         handler.display.scale = 0.5;
-        handler.display.followRadius = 100;
-        handler.display.offsetAccel = 0.5;
-        handler.display.offsetFriction = 0.95;
+        handler.display.followRadius = 0;
+        handler.display.offsetAccel = 2.0;
+        handler.display.offsetFriction = 0.8;
         handler.display.mainObject = player;
         handler.display.setScreenCenter(new Vector2(size.width / 2, size.height / 2));
         Enemy.handler = handler;
         Enemy.player = player;
         Explosion.handler = handler;
+        ScreenShake.setDisplay(handler.display);
 
         Generator generator = new Generator(handler);
         generator.loadMapImage("src/map.png");
@@ -198,6 +200,8 @@ public class GameCanvas extends Canvas implements Runnable {
     private void update(float dt) {
         handler.display.update(dt);
         player.handleInputs(dt);
+        ScreenShake.updateTimer(dt);
+        ScreenShake.update(dt);
     }
 
 }

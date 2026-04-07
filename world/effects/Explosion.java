@@ -52,6 +52,7 @@ public class Explosion extends AreaCircle {
             o.damage(damage, pos);
 
         }
+        ScreenShake.create(2.0, damage * 5);
     }
 
     @Override

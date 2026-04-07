@@ -1,5 +1,6 @@
 package player.weapons;
 
+import particles.types.PhysicsParticle;
 import particles.types.SimpleParticle;
 import physics.objects.PhysicsBall;
 import physics.objects.PhysicsObject;
@@ -30,7 +31,10 @@ public class Bullet extends PhysicsBall {
             for (Contact c : this.contacts)
                 if (c.other != shooter) {
                     c.other.damage(damage, pos.sub(vel.scale(0.2)));
-                    SimpleParticle.emitCircle(pos, 1, radius, 2, displayColor, 0.5, 0.5, 10);
+                    PhysicsParticle.emitCircleAway(pos.add(c.normal.scale(radius)), pos, 1, radius,
+                            0.1, c.other.displayColor, 1, 0.5, 10);
+                    PhysicsParticle.emitCircleAway(pos.add(c.normal.scale(radius)), pos, 1, radius,
+                            0.1, displayColor, 1, 0.5, 5);
 
                     collided = true;
                     handler.removeObject(this);

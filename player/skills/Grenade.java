@@ -19,6 +19,15 @@ public class Grenade extends Skill {
 
     private class Nade extends PhysicsBall {
         public double fuse = 2.5;
+        public double health = 1;
+
+        @Override
+        public void damage(double ammount, Vector2 direction) {
+            health -= ammount;
+            if (health <= 0) {
+                fuse = 0.1;
+            }
+        }
 
         public Nade(int radius, Color color) {
             super(radius, 0.5, 0.1, 0);

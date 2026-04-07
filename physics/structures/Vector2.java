@@ -71,6 +71,11 @@ public class Vector2 {
         return center.add(new Vector2(1, 0).rotate(angle).scale(radius));
     }
 
+    public static Vector2 random(Vector2 center, double radius) {
+        double angle = ThreadLocalRandom.current().nextDouble(0, 360);
+        return center.add(new Vector2(1, 0).rotate(angle).scale(radius));
+    }
+
     public Vector2 set(double x, double y) {
         this.x = x;
         this.y = y;

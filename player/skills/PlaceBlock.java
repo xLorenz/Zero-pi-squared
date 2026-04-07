@@ -9,6 +9,7 @@ import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.Controller;
 import player.Controller.Key;
+import world.effects.ScreenShake;
 import world.terrain.Block;
 import player.Player;
 
@@ -108,6 +109,8 @@ public class PlaceBlock extends Skill {
             if (allowed) {
 
                 Rect rect = new Rect((int) (x / cd), (int) (y / cd), player.color, cd);
+                ScreenShake.create(0.5, 100);
+                SimpleParticle.emitCircle(rect.pos, cd / 2, cd, 2, rect.displayColor, 1.0, 1.0, 5);
 
                 blocks.add(rect);
                 handler.addObject(rect);

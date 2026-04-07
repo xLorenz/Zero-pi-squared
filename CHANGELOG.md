@@ -331,3 +331,25 @@ Implemented static methods in [Vector2]
             int tileSize)
 
 These set path to ray tracing implementations.
+
+### Screen Shake
+
+Added ScreenShake, a singleton that manages screenshake in a given Display.
+
+    
+    public static void update(double dt) {
+
+        if (time <= 0)
+            return;
+
+        double diff = time / maxTime;
+        multiplier *= diff; // cuadratic slow down
+
+        display.offsetVel.addLocal(Vector2.random(new Vector2(), 1).scale(multiplier));
+
+    }
+
+- Explosions now create ScreenShake.
+- Shooting now create ScreenShake.
+- Placing Blocks now create ScreenShake.
+

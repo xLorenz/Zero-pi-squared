@@ -4,6 +4,7 @@ import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.Player;
 import player.Controller.Key;
+import world.effects.ScreenShake;
 
 public class Gun {
 
@@ -28,6 +29,7 @@ public class Gun {
         cooldownTime = coolDown;
         handler.addObject(new Bullet(new Vector2(owner.pos.x, owner.pos.y),
                 new Vector2(owner.direction.x, owner.direction.y), bulletDamage, owner));
+        ScreenShake.create(0.5, bulletDamage * 5);
     }
 
     public void updateTimer(double dt) {
