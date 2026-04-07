@@ -9,6 +9,8 @@ import physics.structures.Vector2;
 public class Block extends PhysicsRect {
     public static PhysicsHandler handler;
 
+    public Block folliage;
+
     public double health = 50;
 
     public Block(int x, int y, int r, int g, int b, int chunkDimension) {
@@ -23,13 +25,23 @@ public class Block extends PhysicsRect {
         this.elasticity = 0;
     }
 
+    public void setFolliage(Block folliage) {
+        this.folliage = folliage;
+        folliage.health = health;
+    }
+
     @Override
     public void damage(double ammount, Vector2 pos) {
+        if (folliage != null) {
+            folliage.damage(ammount, pos);
+        }
         health -= ammount;
         if (health <= 0) {
             health = 0;
-            if (handler != null)
+            if (handler != null) {
                 handler.removeObject(this);
+            }
+
         }
     }
 

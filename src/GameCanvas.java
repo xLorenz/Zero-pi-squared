@@ -117,15 +117,15 @@ public class GameCanvas extends Canvas implements Runnable {
                 handler.chunkDimension));
 
         // spawn test enemies
-        for (int i = 0; i < 20; i++) {
-            new Normie(Vector2.random(100, 5000, 2500, 2700));
-        }
-        for (int i = 0; i < 20; i++) {
-            new Speedster(Vector2.random(100, 5000, 2500, 2700));
-        }
-        for (int i = 0; i < 20; i++) {
-            new Jumper(Vector2.random(100, 5000, 2500, 2700));
-        }
+        // for (int i = 0; i < 20; i++) {
+        // new Normie(Vector2.random(100, 5000, 2500, 2700));
+        // }
+        // for (int i = 0; i < 20; i++) {
+        // new Speedster(Vector2.random(100, 5000, 2500, 2700));
+        // }
+        // for (int i = 0; i < 20; i++) {
+        // new Jumper(Vector2.random(100, 5000, 2500, 2700));
+        // }
 
     }
 

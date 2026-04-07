@@ -354,3 +354,35 @@ Added ScreenShake, a singleton that manages screenshake in a given Display.
 - Placing Blocks now create ScreenShake.
 - Bullet collisions now create more visible PhysicsParticles.
 
+### World Folliage
+
+Added new NoCollisionBlock class and new Bush extends NoCollisionBlock class.
+
+NoCollisionBlock is similar to AreaRect, it wont collide with objects, but it will detect and retunr collisions. 
+
+Bush alters it width and height based on a colliding object velocity, and then bounce back to its original width and height. 
+
+Generator will generate bushes on color 0,255,0 ( green ), and for every block, it will check for bushes above and set that blocks [Block folliage] to the block avobe.
+
+[Block folliage] will get damaged at the same time as the block and will have the same hp as the block. 
+
+
+    public void setFolliage(Block folliage) {
+        this.folliage = folliage;
+        folliage.health = health;
+    }
+
+    @Override
+    public void damage(double ammount, Vector2 pos) {
+        if (folliage != null) {
+            folliage.damage(ammount, pos);
+        }
+        health -= ammount;
+        if (health <= 0) {
+            health = 0;
+            if (handler != null) {
+                handler.removeObject(this);
+            }
+
+        }
+    }
