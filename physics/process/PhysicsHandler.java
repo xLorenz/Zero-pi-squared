@@ -208,6 +208,19 @@ public class PhysicsHandler {
         return display;
     }
 
+    public List<PhysicsObject> getObjectsInChunk(int tileX, int tileY) {
+        Chunk c = getOrCreateChunk(tileX, tileY);
+
+        lock.readLock().lock();
+        try {
+            synchronized (c.objects) {
+                return Collections.unmodifiableList(new ArrayList<>(c.objects));
+            }
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+
     // check for a chunk or add one to the map
     public Chunk getOrCreateChunk(int cx, int cy) {
         return chunks.computeIfAbsent(keyFor(cx, cy), k -> new Chunk());

@@ -199,38 +199,39 @@ public class PhysicsUpdater implements Runnable {
     private void proccessCollisionsByPairs(ArrayList<PhysicsObject> objects) {
         // iterate objects
         for (PhysicsObject o1 : objects) {
-            for (int cx = o1.cMinCx; cx <= o1.cMaxCx; cx++) {
-                for (int cy = o1.cMinCy; cy <= o1.cMaxCy; cy++) {
-                    Chunk ch = handler.getOrCreateChunk(cx, cy);
-                    if (ch == null)
-                        continue;
-                    for (PhysicsObject o2 : ch.objects) {
-
-                        // skip sleepy objects
-                        if (o1.sleeping && o2.sleeping) {
+            if (!o1.sleeping)
+                for (int cx = o1.cMinCx; cx <= o1.cMaxCx; cx++) {
+                    for (int cy = o1.cMinCy; cy <= o1.cMaxCy; cy++) {
+                        Chunk ch = handler.getOrCreateChunk(cx, cy);
+                        if (ch == null)
                             continue;
-                        }
-                        // check unordered pair only once
-                        if (o1.id <= o2.id)
-                            continue;
-                        long a = Math.min(o1.id, o2.id);
-                        long b = Math.max(o1.id, o2.id);
-                        long pairKey = (a << 32) | (b & 0xffffffffL);
+                        for (PhysicsObject o2 : ch.objects) {
 
-                        if (processedPairs.contains(pairKey))
-                            continue; // already handled this unordered pair in another chunk
-                        processedPairs.add(pairKey);
-                        Manifold m = o1.collide(o2); // normal o2 -> o1
-                        if (m != null) {
-                            if (m.collided) {
-                                frameManifolds.add(m);
-                            } else {
-                                Manifold.release(m);
+                            // skip sleepy objects
+                            // if (o1.sleeping && o2.sleeping) {
+                            // continue;
+                            // }
+                            // check unordered pair only once
+                            // if (o1.id <= o2.id)
+                            // continue;
+                            long a = Math.min(o1.id, o2.id);
+                            long b = Math.max(o1.id, o2.id);
+                            long pairKey = (a << 32) | (b & 0xffffffffL);
+
+                            if (processedPairs.contains(pairKey))
+                                continue; // already handled this unordered pair in another chunk
+                            processedPairs.add(pairKey);
+                            Manifold m = o1.collide(o2); // normal o2 -> o1
+                            if (m != null) {
+                                if (m.collided) {
+                                    frameManifolds.add(m);
+                                } else {
+                                    Manifold.release(m);
+                                }
                             }
                         }
                     }
                 }
-            }
         }
     }
 

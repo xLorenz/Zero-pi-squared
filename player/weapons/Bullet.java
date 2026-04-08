@@ -29,7 +29,7 @@ public class Bullet extends PhysicsBall {
         SimpleParticle.emit(pos, new Vector2(), 1, 0.2, this.displayColor);
         if (handler != null && !collided) {
             for (Contact c : this.contacts)
-                if (c.other != shooter) {
+                if (c.other != shooter && c.other != this) {
                     c.other.damage(damage, pos.sub(vel.scale(0.2)));
                     PhysicsParticle.emitCircleAway(pos.add(c.normal.scale(radius)), pos, 1, radius,
                             0.1, c.other.displayColor, 1, 0.5, 10);

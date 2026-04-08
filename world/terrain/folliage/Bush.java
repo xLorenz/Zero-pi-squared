@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import particles.types.SimpleParticle;
+import physics.collisions.Collision;
+import physics.objects.PhysicsBall;
 import physics.objects.PhysicsObject;
 import physics.process.BatchRenderer;
 import physics.structures.Manifold;
@@ -126,10 +128,10 @@ public class Bush extends NoCollisionBlock {
     }
 
     @Override
-    public Manifold collide(PhysicsObject other) {
-        Manifold m = other.collideWithRect(this);
-        updateCollision(other, m);
-        emitContactSmokeParticles(other, m);
+    public Manifold collideWithCircle(PhysicsBall b) {
+        Manifold m = Collision.circleRect(b, this);
+        updateCollision(b, m);
+        emitContactSmokeParticles(b, m);
         return null;
     }
 

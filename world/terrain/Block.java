@@ -60,16 +60,6 @@ public class Block extends PhysicsRect {
         return colision;
     }
 
-    @Override
-    public Manifold collide(PhysicsObject other) {
-        Manifold colision = super.collide(other);
-
-        emitContactSmokeParticles(other, colision);
-
-        return colision;
-
-    }
-
     public void emitContactSmokeParticles(PhysicsObject b, Manifold colision) {
 
         if (colision != null && b instanceof Player) {

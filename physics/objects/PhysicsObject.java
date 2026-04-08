@@ -29,6 +29,8 @@ public abstract class PhysicsObject {
     public double friction = 0.0;
     public long id; // identifier
 
+    public double gravityTerminalVelocity = 10_000_000.0; // vel.lengthSquared()
+
     public boolean stationary = false;
     public boolean supported = false;
     public boolean sleeping = false;
@@ -97,7 +99,8 @@ public abstract class PhysicsObject {
     }
 
     public void addForce(Vector2 force, double dt) {
-        vel.addLocal(force.scale(dt));
+        if (vel.lengthSquared() < gravityTerminalVelocity)
+            vel.addLocal(force.scale(dt));
     }
 
     public void integrateVelocity(double dt) {

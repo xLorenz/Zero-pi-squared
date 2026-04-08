@@ -101,7 +101,7 @@ public class PlaceBlock extends Skill {
             int x = (int) (v.x * cd + cd / 2);
             int y = (int) (v.y * cd + cd / 2);
 
-            for (PhysicsObject o : handler.getUpdateObjectsSnapshot()) {
+            for (PhysicsObject o : handler.getObjectsInChunk((int) (v.x), (int) (v.y))) {
                 if (o.pos.x == x && o.pos.y == y) {
                     allowed = false;
                 }

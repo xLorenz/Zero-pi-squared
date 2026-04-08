@@ -24,7 +24,7 @@ public class Explosion extends AreaCircle {
         }
     }
 
-    public Explosion(Vector2 pos, int radius, double damage, double knockBack) {
+    private Explosion(Vector2 pos, int radius, double damage, double knockBack) {
         super(pos, radius);
         this.pos = pos;
         this.radius = radius;
@@ -32,7 +32,7 @@ public class Explosion extends AreaCircle {
         this.knockBack = knockBack;
     }
 
-    public void emitParticles() {
+    private void emitParticles() {
         SimpleParticle.emitCircle(pos, 10, 30, 20, Color.gray, 3, 1.5, 10);
         SimpleParticle.emitCircle(pos, 10, 30, 5, Color.gray, 4, 1.5, 10);
         SimpleParticle.emitCircle(pos, 10, 30, 2, Color.orange, 7, 0.5, 5);
@@ -41,7 +41,7 @@ public class Explosion extends AreaCircle {
         SimpleParticle.emitCircle(pos, 10, 30, 40, Color.gray, 2, 1.0, 5);
     }
 
-    public void explode() {
+    private void explode() {
         ArrayList<PhysicsObject> list = getCollisions();
 
         for (PhysicsObject o : list) {
