@@ -33,6 +33,7 @@ public class PhysicsHandler {
 
     private Map<Long, Chunk> chunks = new HashMap<>();
     public int chunkDimension = 25;
+    public int chunkRegionsDimension = 100; // region size in chunks
 
     public Vector2 gravity = new Vector2(0, 980);
     private Long nextId = 1L;
