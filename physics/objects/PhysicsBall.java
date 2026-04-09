@@ -51,11 +51,16 @@ public class PhysicsBall extends PhysicsObject {
     @Override
     public int[] getOccuppiedChunks(int chunkDim) {
 
+        int up = (vel.y > VEL_EPS * 10) ? 1 : 0;
+        int down = (vel.y < -VEL_EPS * 10) ? 1 : 0;
+        int right = (vel.x > VEL_EPS * 10) ? 1 : 0;
+        int left = (vel.x < -VEL_EPS * 10) ? 1 : 0;
+
         int[] result = new int[4];
-        result[0] = (int) Math.floor((pos.x - radius) / chunkDim) - 1;
-        result[1] = (int) Math.floor((pos.x + radius) / chunkDim) + 1;
-        result[2] = (int) Math.floor((pos.y - radius) / chunkDim) - 1;
-        result[3] = (int) Math.floor((pos.y + radius) / chunkDim) + 1;
+        result[0] = (int) Math.floor((pos.x - radius) / chunkDim) - left; // minx
+        result[1] = (int) Math.floor((pos.x + radius) / chunkDim) + right; // maxx
+        result[2] = (int) Math.floor((pos.y - radius) / chunkDim) - down; // miny
+        result[3] = (int) Math.floor((pos.y + radius) / chunkDim) + up; // maxy
 
         return result;
     }
@@ -68,12 +73,18 @@ public class PhysicsBall extends PhysicsObject {
     // hooks for double dispatch
     @Override
     public Manifold collideWithCircle(PhysicsBall b) {
-        return Collision.circleCircle(b, this);
+        Manifold m = Collision.circleCircle(b, this);
+        onColisionWithCircle(m);
+        b.onColisionWithCircle(m);
+        return m;
     }
 
     @Override
     public Manifold collideWithRect(PhysicsRect rect) {
-        return Collision.circleRect(this, rect);
+        Manifold m = Collision.circleRect(this, rect);
+        onColisionWithRect(m);
+        rect.onColisionWithCircle(m);
+        return m;
     }
 
 }

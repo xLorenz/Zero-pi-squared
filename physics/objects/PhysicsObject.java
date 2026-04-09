@@ -43,12 +43,6 @@ public abstract class PhysicsObject {
     public Color displayColorDarker = displayColor.darker();
     private CollisionListener collisionListener = null;
 
-    public void damage(double ammount) {
-    }
-
-    public void damage(double ammount, Vector2 damageOrigin) {
-    }
-
     PhysicsObject(long id) {
         this.id = id;
     }
@@ -159,6 +153,10 @@ public abstract class PhysicsObject {
     public void update(double dt) {
     }
 
+    public void damage(double ammount, Vector2 pos) {
+
+    }
+
     public abstract void draw(BatchRenderer renderer);
 
     public abstract void drawDebug(BatchRenderer renderer);
@@ -170,6 +168,14 @@ public abstract class PhysicsObject {
     // hooks for double dispatch
     public abstract Manifold collideWithCircle(PhysicsBall c);
 
+    public void onColisionWithCircle(Manifold m) {
+
+    }
+
     public abstract Manifold collideWithRect(PhysicsRect aabb);
+
+    public void onColisionWithRect(Manifold m) {
+
+    }
 
 }

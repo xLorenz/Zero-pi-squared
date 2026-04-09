@@ -3,7 +3,6 @@ package physics.objects;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import physics.collisions.Collision;
 import physics.process.BatchRenderer;
 import physics.structures.Manifold;
 import physics.structures.Vector2;
@@ -49,14 +48,14 @@ public class AreaRect extends PhysicsRect {
     // hooks for double dispatch
     @Override
     public Manifold collideWithCircle(PhysicsBall b) {
-        Manifold m = Collision.circleRect(b, this);
+        Manifold m = super.collideWithCircle(b);
         updateCollision(b, m);
         return null;
     }
 
     @Override
     public Manifold collideWithRect(PhysicsRect rect) {
-        Manifold m = Collision.rectRect(rect, this);
+        Manifold m = super.collideWithRect(rect);
         updateCollision(rect, m);
         return null;
     }
