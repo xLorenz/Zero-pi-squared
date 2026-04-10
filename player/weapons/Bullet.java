@@ -10,11 +10,19 @@ import physics.structures.Vector2;
 
 public class Bullet extends PhysicsBall {
 
-    public static PhysicsHandler handler;
-    public static double speed = 2500; // direction multiplier
+    private static PhysicsHandler handler;
+    public static double speed = 2000; // direction multiplier
+    public static double maxDistanceSquared = 0;
     double damage;
+    double maxDistanceMult;
+    double distanceSquaredTraveled = 0;
     boolean collided = false;
     PhysicsObject shooter;
+
+    public static void setHandler(PhysicsHandler handler) {
+        Bullet.handler = handler;
+        Bullet.maxDistanceSquared = Math.pow(750 * handler.chunkDimension, 2);
+    }
 
     public Bullet(Vector2 pos, Vector2 direction, double damage, PhysicsObject shooter) {
         super(5, 0, 0.01, 0);
@@ -22,11 +30,30 @@ public class Bullet extends PhysicsBall {
         this.vel = direction.scale(speed);
         this.damage = damage;
         this.shooter = shooter;
+        this.maxDistanceMult = 1.0;
+    }
+
+    public Bullet(Vector2 pos, Vector2 direction, double damage, double maxDistanceMult, PhysicsObject shooter) {
+        super(5, 0, 0.01, 0);
+        this.pos = pos;
+        this.vel = direction.scale(speed);
+        this.damage = damage;
+        this.shooter = shooter;
+        this.maxDistanceMult = maxDistanceMult;
     }
 
     @Override
     public void update(double dt) {
         SimpleParticle.emit(pos, new Vector2(), 1, 0.2, this.displayColor);
+
+        if (checkDistance()) {
+            PhysicsParticle.emitCircleAway(pos, pos, 1, radius,
+                    0.1, displayColor, 1, 0.5, 5);
+
+            collided = true;
+            handler.removeObject(this);
+            return;
+        }
         if (handler != null && !collided) {
             for (Contact c : this.contacts)
                 if (c.other != shooter && c.other != this) {
@@ -40,5 +67,13 @@ public class Bullet extends PhysicsBall {
                     handler.removeObject(this);
                 }
         }
+    }
+
+    public boolean checkDistance() {
+        distanceSquaredTraveled += vel.lengthSquared();
+        if (distanceSquaredTraveled > maxDistanceSquared * maxDistanceMult)
+            return true;
+        else
+            return false;
     }
 }

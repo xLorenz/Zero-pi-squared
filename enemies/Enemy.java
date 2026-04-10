@@ -133,16 +133,6 @@ public abstract class Enemy extends PhysicsBall {
     }
 
     @Override
-    public void damage(double ammount) {
-
-        health -= ammount;
-        if (health < 0) {
-            health = 0;
-            kill();
-        }
-    }
-
-    @Override
     public void damage(double ammount, Vector2 damageOrigin) {
         health -= ammount;
         if (health < 0) {

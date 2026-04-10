@@ -29,7 +29,7 @@ public abstract class PhysicsObject {
     public double friction = 0.0;
     public long id; // identifier
 
-    public double gravityTerminalVelocity = 10_000_000.0; // vel.lengthSquared()
+    public double gravityTerminalVelocity = 1_000_000.0; // vel.lengthSquared()
 
     public boolean stationary = false;
     public boolean supported = false;

@@ -22,7 +22,7 @@ public class Gun {
         this.triggerKey = triggerKey;
         this.owner = owner;
         this.handler = handler;
-        Bullet.handler = handler;
+        Bullet.setHandler(handler);
     }
 
     public void shoot() {

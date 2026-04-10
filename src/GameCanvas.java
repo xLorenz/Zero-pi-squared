@@ -102,6 +102,7 @@ public class GameCanvas extends Canvas implements Runnable {
         handler.display.followRadius = 0;
         handler.display.offsetAccel = 2.0;
         handler.display.offsetFriction = 0.8;
+        handler.display.renderDistance = 64;
         handler.display.mainObject = player;
         handler.display.setScreenCenter(new Vector2(size.width / 2, size.height / 2));
         Enemy.handler = handler;
@@ -148,7 +149,11 @@ public class GameCanvas extends Canvas implements Runnable {
                 fpsTimer = now;
 
                 JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
-                frame.setTitle("Project | FPS: " + fps);
+                frame.setTitle("Project" +
+                        " | FPS: " + fps +
+                        " | TPS: " + handler.getUpdater().getUps() +
+                        " | Objs: " + handler.getUpdateObjectsSnapshot().size() +
+                        " | Part: " + particleHandler.getUpdateParticles().size());
             }
         }
     }
