@@ -41,6 +41,7 @@ public class Controller {
         public Key q = new Key(KeyEvent.VK_Q);
         public Key e = new Key(KeyEvent.VK_E);
         public Key x = new Key(KeyEvent.VK_X);
+        public Key c = new Key(KeyEvent.VK_C);
         public Key control = new Key(KeyEvent.VK_CONTROL);
         public Key shift = new Key(KeyEvent.VK_SHIFT);
 
@@ -53,6 +54,7 @@ public class Controller {
             this.list.add(q);
             this.list.add(e);
             this.list.add(x);
+            this.list.add(c);
             this.list.add(control);
             this.list.add(shift);
         }

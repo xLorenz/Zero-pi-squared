@@ -415,3 +415,29 @@ Bushes emit particles when a moving entity is colliding with it.
 
 
 As of now, only the player emits particles with Blocks and Bushes, this uses [instanceof] for type-checking. Looking for a solution to keep OO design.
+
+
+### Block Shield
+
+Added new Skill [BlockShield]. Generates a ring of block around the player. 
+
+    
+    public static List<Vector2> getCircleTiles(int radiusTiles) {
+        List<Vector2> result = new ArrayList<>();
+
+        int r2 = radiusTiles * radiusTiles;
+
+        for (int x = -radiusTiles; x <= radiusTiles; x++) {
+            for (int y = -radiusTiles; y <= radiusTiles; y++) {
+                int dist2 = x * x + y * y;
+
+                if (Math.abs(dist2 - r2) <= radiusTiles) {
+                    result.add(new Vector2(x, y));
+                }
+            }
+        }
+        return result;
+    }
+
+Modified [GRAVITY_TERMINAL_VEL] in [PhysicsObject.java] and modified [addForce] to prevent gravity addition if [vel.y] < GRAVITY_TERMINAL_VEL.
+

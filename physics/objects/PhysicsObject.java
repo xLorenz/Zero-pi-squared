@@ -18,6 +18,7 @@ public abstract class PhysicsObject {
     public static int MAX_SLEEP_FRAMES = 50;
     public static double WAKE_VEL_THRESHOLD = 1.0;
     public static double WAKE_PENETRATION_THRESHOLD = 0.5;
+    public static double GRAVITY_TERMINAL_VELOCITY = 1_250.0; // vel.lengthSquared()
 
     public Vector2 pos = new Vector2(); // pos, for all objects, its center
     public int cx, cy; // center chunkPos
@@ -28,8 +29,6 @@ public abstract class PhysicsObject {
     public double elasticity;
     public double friction = 0.0;
     public long id; // identifier
-
-    public double gravityTerminalVelocity = 1_000_000.0; // vel.lengthSquared()
 
     public boolean stationary = false;
     public boolean supported = false;
@@ -93,7 +92,7 @@ public abstract class PhysicsObject {
     }
 
     public void addForce(Vector2 force, double dt) {
-        if (vel.lengthSquared() < gravityTerminalVelocity)
+        if (vel.y < GRAVITY_TERMINAL_VELOCITY)
             vel.addLocal(force.scale(dt));
     }
 
