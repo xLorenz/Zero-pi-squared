@@ -93,16 +93,16 @@ public class PhysicsRect extends PhysicsObject {
     @Override
     public Manifold collideWithCircle(PhysicsBall b) {
         Manifold m = Collision.circleRect(b, this);
-        onColisionWithCircle(m);
-        b.onColisionWithRect(m);
+        onColisionWithCircle(b, m);
+        b.onColisionWithRect(this, m);
         return m;
     }
 
     @Override
     public Manifold collideWithRect(PhysicsRect rect) {
         Manifold m = Collision.rectRect(rect, this);
-        onColisionWithRect(m);
-        rect.onColisionWithRect(m);
+        onColisionWithRect(rect, m);
+        rect.onColisionWithRect(this, m);
         return m;
     }
 

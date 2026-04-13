@@ -3,7 +3,6 @@ package world.terrain;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import physics.collisions.Collision;
 import physics.objects.PhysicsBall;
 import physics.objects.PhysicsObject;
 import physics.objects.PhysicsRect;
@@ -48,7 +47,7 @@ public class NoCollisionBlock extends Block {
 
     @Override
     public Manifold collide(PhysicsObject other) {
-        Manifold m = other.collideWithRect(this);
+        Manifold m = super.collide(other);
         updateCollision(other, m);
         return null;
     }
@@ -56,14 +55,14 @@ public class NoCollisionBlock extends Block {
     // hooks for double dispatch
     @Override
     public Manifold collideWithCircle(PhysicsBall b) {
-        Manifold m = Collision.circleRect(b, this);
+        Manifold m = super.collideWithCircle(b);
         updateCollision(b, m);
         return null;
     }
 
     @Override
     public Manifold collideWithRect(PhysicsRect rect) {
-        Manifold m = Collision.rectRect(rect, this);
+        Manifold m = super.collideWithRect(rect);
         updateCollision(rect, m);
         return null;
     }

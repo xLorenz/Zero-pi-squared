@@ -50,7 +50,7 @@ public class BatchRenderer {
 
     }
 
-    public void drawOval(Vector2 pos, double w, double h) {
+    public void fillOval(Vector2 pos, double w, double h) {
 
         if (g == null)
             return;
@@ -62,6 +62,20 @@ public class BatchRenderer {
         circle.setFrame(xi, yi, w * scale, h * scale);
 
         g.fill((Shape) circle);
+    }
+
+    public void drawOval(Vector2 pos, double w, double h) {
+
+        if (g == null)
+            return;
+
+        double scale = display.scale;
+        double xi = ((pos.x + display.offset.x) - w / 2) * scale;
+        double yi = ((pos.y + display.offset.y) - h / 2) * scale;
+
+        circle.setFrame(xi, yi, w * scale, h * scale);
+
+        g.draw((Shape) circle);
     }
 
     public void drawCircunference(Vector2 pos, int radius) {

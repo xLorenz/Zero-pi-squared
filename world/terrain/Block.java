@@ -51,13 +51,8 @@ public class Block extends PhysicsRect {
     }
 
     @Override
-    public Manifold collideWithCircle(PhysicsBall b) {
-
-        Manifold colision = super.collideWithCircle(b);
-
-        emitContactSmokeParticles(b, colision);
-
-        return colision;
+    public void onColisionWithCircle(PhysicsBall b, Manifold m) {
+        emitContactSmokeParticles(b, m);
     }
 
     public void emitContactSmokeParticles(PhysicsObject b, Manifold colision) {

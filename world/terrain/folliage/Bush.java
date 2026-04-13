@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import particles.types.SimpleParticle;
-import physics.collisions.Collision;
 import physics.objects.PhysicsBall;
 import physics.objects.PhysicsObject;
 import physics.process.BatchRenderer;
 import physics.structures.Manifold;
 import physics.structures.Vector2;
-import player.Player;
 import world.terrain.NoCollisionBlock;
 
 public class Bush extends NoCollisionBlock {
@@ -109,30 +107,28 @@ public class Bush extends NoCollisionBlock {
         heightStretchVel *= 0.8;
     }
 
-    @Override
-    public void emitContactSmokeParticles(PhysicsObject b, Manifold colision) {
-        if (colision != null && b instanceof Player) {
+    public void emitContactSmokeParticles(PhysicsBall b, Manifold colision) {
+        if (colision != null) {
             if (b.vel.lengthSquared() > 10.0) {
                 // if (colision.penetration > 1.0) {
+                double vel = b.vel.length();
                 SimpleParticle.emitCircleAway(
-                        b.pos.sub(b.vel.normalize().scale(5)),
+                        b.pos.sub(b.vel.normalize().scale(b.radius * 2)),
                         b.pos,
-                        1, 2,
-                        b.vel.length() * 0.7,
+                        1, b.radius,
+                        vel * 5,
                         new Color(displayColor.getRed(), displayColor.getGreen(), displayColor.getBlue(), 50).darker()
                                 .darker(),
                         2.5,
-                        3.0, rand.nextInt(1 + (int) (Math.abs(b.vel.length()) / 400)));
+                        3.0,
+                        rand.nextInt(1 + (int) ((vel / 10_000) * b.radius)));
             }
         }
     }
 
     @Override
-    public Manifold collideWithCircle(PhysicsBall b) {
-        Manifold m = Collision.circleRect(b, this);
-        updateCollision(b, m);
+    public void onColisionWithCircle(PhysicsBall b, Manifold m) {
         emitContactSmokeParticles(b, m);
-        return null;
     }
 
 }

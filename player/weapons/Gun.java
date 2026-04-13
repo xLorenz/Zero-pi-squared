@@ -10,15 +10,13 @@ public class Gun {
 
     public PhysicsHandler handler;
 
-    public double coolDown;
+    public double coolDown = 0.1;
     public double cooldownTime = 0;
-    public double bulletDamage;
+    public double bulletDamage = 10;
     public Key triggerKey;
     public Player owner;
 
-    public Gun(double coolDown, double bulletDamage, Key triggerKey, Player owner, PhysicsHandler handler) {
-        this.coolDown = coolDown;
-        this.bulletDamage = bulletDamage;
+    public Gun(Key triggerKey, Player owner, PhysicsHandler handler) {
         this.triggerKey = triggerKey;
         this.owner = owner;
         this.handler = handler;

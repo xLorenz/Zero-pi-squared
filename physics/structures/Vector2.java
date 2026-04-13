@@ -12,6 +12,10 @@ public class Vector2 {
         this(0, 0);
     }
 
+    public Vector2(Vector2 v) {
+        this(v.x, v.y);
+    }
+
     public Vector2(double x, double y) {
         this.x = x;
         this.y = y;

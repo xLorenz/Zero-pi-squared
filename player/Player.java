@@ -48,7 +48,7 @@ public class Player extends PhysicsBall {
         skillsManager.addSkill(new Grenade(controller.keys.x, handler));
         skillsManager.addSkill(new BlockSield(controller.keys.c, handler));
 
-        this.gun = new Gun(0.1, 10, controller.mouse.left, this, handler);
+        this.gun = new Gun(controller.mouse.left, this, handler);
 
         this.forceAwake = true;
         this.friction = 0.0;

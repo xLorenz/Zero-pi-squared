@@ -441,3 +441,13 @@ Added new Skill [BlockShield]. Generates a ring of block around the player.
 
 Modified [GRAVITY_TERMINAL_VEL] in [PhysicsObject.java] and modified [addForce] to prevent gravity addition if [vel.y] < GRAVITY_TERMINAL_VEL.
 
+
+### Object Collisions Reaction ReWrite
+
+Rewrote several Objects collisions using new [onCollisionWithCircle()] and [onCollisionWithRect()] methods. Simplified logic for [Block], [Bush], [Enemy].
+
+Added an outline to Enemies shapes. 
+
+Added new [Shotgun] extends [Gun] and [ShotgunBullet] extends [Bullet]. 
+
+Modified [Gun] constructor to use less parameters, turning them into defined attributes.

@@ -4,7 +4,7 @@ import physics.objects.PhysicsBall;
 import physics.process.BatchRenderer;
 import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
-import physics.structures.Contact;
+import physics.structures.Manifold;
 import player.Player;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -49,7 +49,6 @@ public abstract class Enemy extends PhysicsBall {
     public void draw(BatchRenderer renderer) {
         double diameter = radius * 2.0;
 
-        // Tune these values
         double stretchFactor = 0.04; // how sensitive stretch is to velocity
         double maxStretch = radius; // max extra height (in world units)
 
@@ -69,6 +68,9 @@ public abstract class Enemy extends PhysicsBall {
         int y = (int) ((pos.y - yOffset));
 
         renderer.setFill(displayColor, 255);
+        renderer.fillOval(new Vector2(x, y), width, height);
+
+        renderer.setFill(Color.black, 150);
         renderer.drawOval(new Vector2(x, y), width, height);
     }
 
@@ -83,11 +85,12 @@ public abstract class Enemy extends PhysicsBall {
             jumpTimer = jumpCooldown;
         }
 
-        // hit player
-        for (Contact c : contacts) {
-            if (c.other == player) {
-                player.damage(damage);
-            }
+    }
+
+    @Override
+    public void onColisionWithCircle(PhysicsBall b, Manifold m) {
+        if (b == player) {
+            player.damage(damage);
         }
     }
 

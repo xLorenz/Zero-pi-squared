@@ -167,13 +167,13 @@ public abstract class PhysicsObject {
     // hooks for double dispatch
     public abstract Manifold collideWithCircle(PhysicsBall c);
 
-    public void onColisionWithCircle(Manifold m) {
+    public void onColisionWithCircle(PhysicsBall b, Manifold m) {
 
     }
 
     public abstract Manifold collideWithRect(PhysicsRect aabb);
 
-    public void onColisionWithRect(Manifold m) {
+    public void onColisionWithRect(PhysicsRect r, Manifold m) {
 
     }
 

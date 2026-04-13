@@ -13,11 +13,11 @@ public class Bullet extends PhysicsBall {
     private static PhysicsHandler handler;
     public static double speed = 2000; // direction multiplier
     public static double maxDistanceSquared = 0;
-    double damage;
-    double maxDistanceMult;
-    double distanceSquaredTraveled = 0;
-    boolean collided = false;
-    PhysicsObject shooter;
+    public double damage;
+    public double maxDistanceMult;
+    public double distanceSquaredTraveled = 0;
+    public boolean collided = false;
+    public PhysicsObject shooter;
 
     public static void setHandler(PhysicsHandler handler) {
         Bullet.handler = handler;
@@ -54,9 +54,9 @@ public class Bullet extends PhysicsBall {
             handler.removeObject(this);
             return;
         }
-        if (handler != null && !collided) {
+        if (handler != null) {
             for (Contact c : this.contacts)
-                if (c.other != shooter && c.other != this) {
+                if (c.other != shooter && !(c.other instanceof Bullet) && !collided) {
                     c.other.damage(damage, pos.sub(vel.scale(0.2)));
                     PhysicsParticle.emitCircleAway(pos.add(c.normal.scale(radius)), pos, 1, radius,
                             0.1, c.other.displayColor, 1, 0.5, 10);
@@ -65,6 +65,7 @@ public class Bullet extends PhysicsBall {
 
                     collided = true;
                     handler.removeObject(this);
+                    break;
                 }
         }
     }
