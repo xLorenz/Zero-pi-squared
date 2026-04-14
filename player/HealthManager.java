@@ -4,14 +4,26 @@ public class HealthManager {
     public int health;
     private int maxHealth;
 
-    private double defVulnerabilityTimer;
+    private double baseInvulnerabilityTime;
+    private double invulnerabilityTimeMultiplier = 1.0;
     private double vulnerabilityTimer = 0;
     public boolean vulnerable = true;
 
-    public HealthManager(int maxHealth, double defVulnerabilityTimer) {
+    public HealthManager(int maxHealth, double baseInvulnerabilityTime) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
-        this.defVulnerabilityTimer = defVulnerabilityTimer;
+        this.baseInvulnerabilityTime = baseInvulnerabilityTime;
+    }
+
+    public HealthManager(int maxHealth, double baseInvulnerabilityTime, double invulnerabilityTimeMultiplier) {
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
+        this.baseInvulnerabilityTime = baseInvulnerabilityTime;
+        this.invulnerabilityTimeMultiplier = invulnerabilityTimeMultiplier;
+    }
+
+    public void setInvulnerabilityTimeMultiplier(double invulnerabilityTimeMultiplier) {
+        this.invulnerabilityTimeMultiplier = invulnerabilityTimeMultiplier;
     }
 
     public void updateTimers(double dt) {
@@ -38,7 +50,7 @@ public class HealthManager {
 
     public void setInvulnerability() {
         vulnerable = false;
-        vulnerabilityTimer = defVulnerabilityTimer;
+        vulnerabilityTimer = baseInvulnerabilityTime * invulnerabilityTimeMultiplier;
     }
 
     public void setInvulnerability(double time) {

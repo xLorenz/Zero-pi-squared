@@ -33,7 +33,7 @@ public class GameCanvas extends Canvas implements Runnable {
 
     private PhysicsHandler handler = new PhysicsHandler();
     private ParticleHandler particleHandler = new ParticleHandler(handler);
-    private Player player = new Player(new Vector2(0, 0), Color.cyan, handler);
+    private Player player = new Player(new Vector2(0, 0), handler);
 
     private Thread updaterThread;
     private Thread gameThread;

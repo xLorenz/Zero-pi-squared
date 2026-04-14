@@ -49,7 +49,7 @@ public class Grenade extends Skill {
     @Override
     public void update(double dt, Player player) {
         if (active) {
-            Nade n = new Nade(10, player.color);
+            Nade n = new Nade(10, player.displayColor);
             n.pos.set(player.pos.add(player.direction.scale(player.radius)));
             n.vel.set(player.direction.scale(500));
             handler.addObject(n);

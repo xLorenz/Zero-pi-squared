@@ -23,14 +23,14 @@ public class DoubleJump extends Skill {
     public void update(double dt, Player player) {
 
         if (active) {
-            player.vel.y = -player.baseJumpStrength;
+            player.vel.y = -player.attributes.baseJumpStrength;
             for (int i = 0; i < 10; i++) {
                 SimpleParticle.emit(
                         player.pos,
                         Vector2.random(-50, 50, -50, 50),
                         1.2,
                         1.5,
-                        player.color);
+                        player.displayColor);
             }
             ready = false;
             active = false;
@@ -42,7 +42,7 @@ public class DoubleJump extends Skill {
         }
 
         if (!used)
-            if (player.airBorneTimer > thresholdForActivation) {
+            if (player.attributes.airBorneTimer > thresholdForActivation) {
                 ready = true;
             } else {
                 ready = false;

@@ -104,7 +104,7 @@ public class BlockSield extends Skill {
                 }
             }
             if (allowed) {
-                Rect rect = new Rect((int) (x / cd), (int) (y / cd), player.color, cd);
+                Rect rect = new Rect((int) (x / cd), (int) (y / cd), player.displayColor, cd);
                 ScreenShake.create(0.5, 100);
                 SimpleParticle.emitCircle(rect.pos, cd / 2, cd, 2, rect.displayColor, 1.0, 1.0, 5);
 

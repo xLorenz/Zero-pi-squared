@@ -1,6 +1,6 @@
 package player;
 
-import java.awt.Color;
+import java.util.List;
 import java.util.Random;
 
 import particles.types.*;
@@ -16,46 +16,36 @@ public class Player extends PhysicsBall {
     public PhysicsHandler handler;
     private Random rand = new Random();
 
-    public Color color;
-
+    public Controller controller = new Controller();
+    public PlayerAttributes attributes = new PlayerAttributes();
     public HealthManager healthManager;
     public SkillsManager skillsManager;
-
-    public int baseSpeed = 1000;
-    public double speedMultiplier = 1.0;
-    public int baseMaxSpeed = 250;
-
-    public int baseJumpStrength = 600;
+    public Gun gun;
 
     public Vector2 direction = new Vector2(1, 0);
 
-    public Controller controller = new Controller();
+    public Player(Vector2 pos, PhysicsHandler handler) {
+        super(PlayerAttributes.hitBoxRadius, PlayerAttributes.baseElasticity, PlayerAttributes.baseMass, 0L);
 
-    public double airBorneTimer = 0.0;
-
-    public Gun gun;
-
-    public Player(Vector2 pos, Color color, PhysicsHandler handler) {
-        super(25, 0.05, 10.0, 0L);
+        this.forceAwake = true;
+        this.friction = attributes.baseFriction;
         this.pos = pos;
-        this.color = color;
+        setDisplayColor(attributes.baseColor);
 
-        this.healthManager = new HealthManager(100, 1.0);
-        this.skillsManager = new SkillsManager(this);
-        skillsManager.addSkill(new Sprint(controller.keys.control));
-        skillsManager.addSkill(new DoubleJump(controller.keys.space));
-        skillsManager.addSkill(new PlaceBlock(controller.mouse.right, handler));
-        skillsManager.addSkill(new Grenade(controller.keys.x, handler));
-        skillsManager.addSkill(new BlockSield(controller.keys.c, handler));
+        healthManager = attributes.createBaseHealthManager();
+
+        skillsManager = attributes.createSkillsManager(this, List.of(
+                new Sprint(controller.keys.control),
+                new DoubleJump(controller.keys.space),
+                new PlaceBlock(controller.mouse.right, handler),
+                new Grenade(controller.keys.x, handler),
+                new BlockSield(controller.keys.c, handler)));
 
         this.gun = new Gun(controller.mouse.left, this, handler);
 
-        this.forceAwake = true;
-        this.friction = 0.0;
-
-        handler.addObject(this);
         this.handler = handler;
 
+        handler.addObject(this);
     }
 
     @Override
@@ -67,9 +57,9 @@ public class Player extends PhysicsBall {
         };
 
         if (healthManager.vulnerable) {
-            renderer.setFill(color, 255);
+            renderer.setFill(displayColor, 255);
         } else {
-            renderer.setFill(color.darker(), 255);
+            renderer.setFill(displayColorDarker, 255);
         }
         renderer.drawPolygon(points, 3);
     }
@@ -99,10 +89,10 @@ public class Player extends PhysicsBall {
     public void handleInputs(double dt) {
         // jump
 
-        if (supported || airBorneTimer <= 0.2) {
+        if (supported || attributes.airBorneTimer <= 0.2) {
             if (controller.keys.space.singlePress()) {
                 // must be on the ground or in coyote timer
-                vel.set(new Vector2(vel.x, -baseJumpStrength));
+                vel.set(new Vector2(vel.x, -attributes.baseJumpStrength));
 
                 for (int i = 0; i < 20; i++) {
                     SimpleParticle.emit(new Vector2(pos.x, pos.y + radius));
@@ -113,14 +103,14 @@ public class Player extends PhysicsBall {
 
         // walk left
         if (controller.keys.a.pressed) {
-            if (vel.x > -baseMaxSpeed * speedMultiplier) {
-                vel.x -= baseSpeed * speedMultiplier * dt;
+            if (vel.x > -attributes.baseMaxSpeed * attributes.speedMultiplier) {
+                vel.x -= attributes.baseSpeed * attributes.speedMultiplier * dt;
             }
         }
         // walk right
         if (controller.keys.d.pressed) {
-            if (vel.x < baseMaxSpeed * speedMultiplier) {
-                vel.x += baseSpeed * speedMultiplier * dt;
+            if (vel.x < attributes.baseMaxSpeed * attributes.speedMultiplier) {
+                vel.x += attributes.baseSpeed * attributes.speedMultiplier * dt;
             }
         }
 
@@ -132,9 +122,9 @@ public class Player extends PhysicsBall {
 
     public void updateTimers(double dt) {
         if (!supported) {
-            airBorneTimer += dt;
+            attributes.airBorneTimer += dt;
         } else {
-            airBorneTimer = 0.0;
+            attributes.airBorneTimer = 0.0;
         }
         healthManager.updateTimers(dt);
         skillsManager.updateTimers(dt);

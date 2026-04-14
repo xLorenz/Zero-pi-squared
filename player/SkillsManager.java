@@ -1,5 +1,6 @@
 package player;
 
+import java.util.List;
 import java.util.ArrayList;
 
 import player.skills.Skill;
@@ -36,6 +37,11 @@ public class SkillsManager {
 
     public void addSkill(Skill s) {
         skills.add(s);
+    }
+
+    public void addSkills(List<Skill> skills) {
+        for (Skill s : skills)
+            this.skills.add(s);
     }
 
     public void removeSkill(Skill s) {

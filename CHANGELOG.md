@@ -451,3 +451,12 @@ Added an outline to Enemies shapes.
 Added new [Shotgun] extends [Gun] and [ShotgunBullet] extends [Bullet]. 
 
 Modified [Gun] constructor to use less parameters, turning them into defined attributes.
+
+
+### Player Atributes
+
+Added [PlayerAttributes] class. Holds all of the player base attributes and variable attributes.
+
+Added [invulnerabilityTimeMultiplier] to [HealthManager], and renamed variables.
+
+Modified [Player] constructor to no longer require color.

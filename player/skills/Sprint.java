@@ -25,7 +25,7 @@ public class Sprint extends Skill {
     @Override
     public void update(double dt, Player player) {
         if (active) {
-            player.speedMultiplier = 1.5;
+            player.attributes.speedMultiplier = 1.5;
 
             if (player.supported && player.vel.x != 0)
                 SimpleParticle.emit(
@@ -33,9 +33,9 @@ public class Sprint extends Skill {
                         new Vector2(-player.vel.x / 10, -50 + rand.nextInt(50)),
                         0.75 + rand.nextInt(20) / 10,
                         1,
-                        player.color);
+                        player.displayColor);
         } else {
-            player.speedMultiplier = 1;
+            player.attributes.speedMultiplier = 1;
         }
     }
 
