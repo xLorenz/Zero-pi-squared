@@ -27,7 +27,8 @@ public class Block extends PhysicsRect {
                 y * chunkDimension + (int) (chunkDimension / 2)));
 
         this.displayColor = new Color(r, g, b);
-        this.elasticity = 0;
+        this.elasticity = 0.2;
+        this.friction = 0.2;
     }
 
     public void setFolliage(Block folliage) {

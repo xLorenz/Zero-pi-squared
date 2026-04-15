@@ -10,7 +10,7 @@ public class PlayerAttributes {
     public static final int hitBoxRadius = 25;
     public static final double baseElasticity = 0.05;
     public static final double baseMass = 10.0;
-    public final double baseFriction = 0.0;
+    public final double baseFriction = 0.2;
 
     public final Color baseColor = Color.CYAN;
 

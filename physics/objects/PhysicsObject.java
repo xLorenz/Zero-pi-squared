@@ -27,7 +27,7 @@ public abstract class PhysicsObject {
     public double mass;
     public double invMass = Double.NaN;
     public double elasticity;
-    public double friction = 0.0;
+    public double friction = 0.2;
     public long id; // identifier
 
     public boolean stationary = false;
