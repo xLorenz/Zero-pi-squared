@@ -6,7 +6,7 @@ import physics.structures.Manifold;
 import physics.structures.Vector2;
 
 public class Collision {
-    private static final double EPSILON = 1e-6;
+    private static final double EPSILON = 1e-7;
 
     public static Manifold circleCircle(PhysicsBall b1, PhysicsBall b2) {
 
@@ -108,6 +108,33 @@ public class Collision {
             m.contacts.add(contactPoint);
             // make sure normal is unit length
             return m;
+        }
+
+        // corner contact, compare how far the baall overshot each boundary
+        // the axis with the larger overshoot is the face its hitting
+        if (!insideX && !insideY) {
+            double xOvershoot = Math.abs(d.x) - clampedX; // past x boundary
+            double yOvershoot = Math.abs(d.y) - clampedY; // past x boundary
+
+            if (yOvershoot > xOvershoot + EPSILON) {
+                // ball aproaching top/bottom face
+                double ny = Math.signum(d.y - clampedX);
+                double faceY = r.pos.y + clampedY; // world y of face
+
+                m.normal = new Vector2(0, ny);
+                m.penetration = b.radius - Math.abs(b.pos.y - faceY);
+                m.contacts.add(new Vector2(clamp(b.pos.x, r.pos.x - halfW, r.pos.x + halfW), faceY));
+                return m;
+            } else if (xOvershoot > yOvershoot + EPSILON) {
+                // ball aproaching left/right face
+                double nx = Math.signum(d.x - clampedX);
+                double faceX = r.pos.x + clampedX;
+
+                m.normal = new Vector2(nx, 0);
+                m.penetration = b.radius - Math.abs(b.pos.x - faceX);
+                m.contacts.add(new Vector2(faceX, clamp(b.pos.y, r.pos.y - halfH, r.pos.y + halfH)));
+            }
+            // else: true 45º corner hit, fall through to diagonal normal below
         }
 
         // normal from closest point to circ

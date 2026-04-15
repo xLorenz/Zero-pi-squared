@@ -450,3 +450,9 @@ Fixed a bug where Enemies would damage the player even if they didn't collide.
 Modified [collideWithRect] and [collideWithCircle] for PhysicsObjects, null checking the manifold before calling [onCollisionWithCircle] and [onCollisionWithRect], so the methods only call if a collision is true.
 
 Modify the CHANGELOG to follow MarkDown formatting properly.
+
+## Ghost Corner Hit Bug Fix
+
+Fixed a bug in [physics.collisions.Collision] where a circle could hit the corner of two adjacent rects, getting incorrect impuse addition.
+
+Now Collision.circleRect() accounts for edge (corner) cases, returning a corner bounce only in a true 45º angle.
