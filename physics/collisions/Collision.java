@@ -113,12 +113,12 @@ public class Collision {
         // corner contact, compare how far the baall overshot each boundary
         // the axis with the larger overshoot is the face its hitting
         if (!insideX && !insideY) {
-            double xOvershoot = Math.abs(d.x) - clampedX; // past x boundary
-            double yOvershoot = Math.abs(d.y) - clampedY; // past x boundary
+            double xOvershoot = Math.abs(d.x - clampedX); // past x boundary
+            double yOvershoot = Math.abs(d.y - clampedY); // past x boundary
 
             if (yOvershoot > xOvershoot + EPSILON) {
                 // ball aproaching top/bottom face
-                double ny = Math.signum(d.y - clampedX);
+                double ny = Math.signum(d.y - clampedY);
                 double faceY = r.pos.y + clampedY; // world y of face
 
                 m.normal = new Vector2(0, ny);
@@ -133,6 +133,7 @@ public class Collision {
                 m.normal = new Vector2(nx, 0);
                 m.penetration = b.radius - Math.abs(b.pos.x - faceX);
                 m.contacts.add(new Vector2(faceX, clamp(b.pos.y, r.pos.y - halfH, r.pos.y + halfH)));
+                return m;
             }
             // else: true 45º corner hit, fall through to diagonal normal below
         }
