@@ -1,0 +1,749 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" style="background: transparent; background-color: transparent; color-scheme: light dark;" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="801px" height="634px" viewBox="-0.5 -0.5 801 634" content="&lt;mxfile&gt;&lt;diagram id=&quot;RqoKarbZfmlzSeMLvxQC&quot; name=&quot;Sound System&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <g>
+            <path d="M 0 266 L 0 240 L 230 240 L 230 266" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 0 266 L 0 540 L 230 540 L 230 266" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 0 266 L 230 266" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 228px; height: 1px; padding-top: 247px; margin-left: 1px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    AudioManager
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="115" y="259" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        AudioManager
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="0" y="266" width="230" height="114" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 220px; height: 1px; padding-top: 273px; margin-left: 6px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 110px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    <span style="background-color: transparent;">
+                                        - sfxPlayer : SfxPlayer
+                                    </span>
+                                    <div>
+                                        - musicPlayer : MusicPlayer
+                                    </div>
+                                    <div>
+                                        - masterVolume : double
+                                    </div>
+                                    <div>
+                                        - sfxVolume : double
+                                    </div>
+                                    <div>
+                                        - musicVolume : double
+                                    </div>
+                                    <div>
+                                        - paused : boolean
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="6" y="285" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - sfxPlayer : SfxPlayer...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 0 384 L 230 384" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="0" y="388" width="230" height="152" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 220px; height: 1px; padding-top: 395px; margin-left: 6px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 148px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    + playSfx(id)
+                                    <div>
+                                        + playMusic(id, loop)
+                                    </div>
+                                    <div>
+                                        + stopMusic()
+                                    </div>
+                                    <div>
+                                        + pauseAll()
+                                    </div>
+                                    <div>
+                                        + resumeAll()
+                                    </div>
+                                    <div>
+                                        + setVolumes()
+                                    </div>
+                                    <div>
+                                        + updateVolumes()
+                                    </div>
+                                    <div>
+                                        + mute()
+                                    </div>
+                                    <div>
+                                        + ummute()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="6" y="407" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + playSfx(id)...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 180 26 L 180 0 L 500 0 L 500 26" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 180 26 L 180 190 L 500 190 L 500 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 180 26 L 500 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 318px; height: 1px; padding-top: 7px; margin-left: 181px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    AudioAssetCache
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="340" y="19" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        AudioAssetCache
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="180" y="26" width="320" height="74" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 310px; height: 1px; padding-top: 33px; margin-left: 186px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 70px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    <font style="">
+                                        - audioData : Map&lt;String, byte[]&gt;
+                                    </font>
+                                    <div>
+                                        <font style="">
+                                            - formats : Map&lt;String, AudioFormat&gt;
+                                            <br/>
+                                        </font>
+                                        <div>
+                                            <div>
+                                                <font style="">
+                                                    - musicTracks : Map&lt;String, URL&gt;
+                                                </font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <font style="">
+                                            - bundledIds : Map&lt;String, List&lt;String&gt;&gt;
+                                        </font>
+                                    </div>
+                                    <div>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="186" y="45" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - audioData : Map&lt;String, byte[]&gt;...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 180 104 L 500 104" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="180" y="108" width="320" height="82" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 310px; height: 1px; padding-top: 115px; margin-left: 186px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 78px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    <font style="">
+                                        + loadClip(id, path)
+                                    </font>
+                                    <div>
+                                        <font style="">
+                                            + loadMusic(id, path)
+                                            <br/>
+                                        </font>
+                                        <div>
+                                            <font style="">
+                                                + getClip(id)
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font style="">
+                                                + getStream(id)
+                                            </font>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <font style="">
+                                            + loadBundledIds(id, listOfIds)
+                                        </font>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="186" y="127" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + loadClip(id, path)...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 385 276 L 385 250 L 565 250 L 565 276" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 385 276 L 385 430 L 565 430 L 565 276" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 385 276 L 565 276" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 178px; height: 1px; padding-top: 257px; margin-left: 386px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    SfxPlayer
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="475" y="269" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        SfxPlayer
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="385" y="276" width="180" height="44" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 170px; height: 1px; padding-top: 283px; margin-left: 391px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 40px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    - channels : List&lt;SfxChannel&gt;
+                                    <div>
+                                        - maxChannels : int
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="391" y="295" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - channels : List&lt;SfxChannel&gt;...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 385 324 L 565 324" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="385" y="328" width="180" height="102" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 170px; height: 1px; padding-top: 335px; margin-left: 391px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 98px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    <font style="color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                                        + play(id)
+                                    </font>
+                                    <div>
+                                        <font style="color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                                            - stealchannel() : SfxChannel
+                                        </font>
+                                    </div>
+                                    <div>
+                                        <font style="color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                                            - findFreeChannel(): stealChannel
+                                            <br/>
+                                        </font>
+                                        <div>
+                                            <font style="color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                                                + stopAll()
+                                            </font>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <font style="color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                                            - opdateVolumes()
+                                        </font>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="391" y="347" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + play(id)...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 370 506 L 370 480 L 580 480 L 580 506" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 370 506 L 370 630 L 580 630 L 580 506" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 370 506 L 580 506" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 208px; height: 1px; padding-top: 487px; margin-left: 371px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    MusicPlayer
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="475" y="499" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        MusicPlayer
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="370" y="506" width="210" height="44" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 200px; height: 1px; padding-top: 513px; margin-left: 376px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 40px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    - currentStream : AudioStreamPlayer
+                                    <div>
+                                        - thread : Thread
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="376" y="525" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - currentStream : AudioStreamPlaye...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 370 554 L 580 554" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="370" y="558" width="210" height="72" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 200px; height: 1px; padding-top: 565px; margin-left: 376px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 68px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    + play(id, loop : boolean)
+                                    <div>
+                                        + stop()
+                                    </div>
+                                    <div>
+                                        + fadeIn()
+                                    </div>
+                                    <div>
+                                        + fadeOut()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="376" y="577" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + play(id, loop : boolean)...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 230 323 L 300 323.05 Q 310 323.06 310 313.06 L 310 272 Q 310 262 320 262 L 378.63 262" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 383.88 262 L 376.88 265.5 L 378.63 262 L 376.88 258.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 230 323 L 300 323.05 Q 310 323.06 310 333.06 L 310 544.94 Q 310 554.94 320 554.94 L 363.63 554.94" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 368.88 554.94 L 361.88 558.44 L 363.63 554.94 L 361.88 551.44 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 640 306 L 640 280 L 800 280 L 800 306" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 640 306 L 640 480 L 800 480 L 800 306" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 640 306 L 800 306" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 287px; margin-left: 641px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    SfxChannel
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="720" y="299" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        SfxChannel
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="640" y="306" width="160" height="74" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 150px; height: 1px; padding-top: 313px; margin-left: 646px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 70px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    - clip : Clip
+                                    <div>
+                                        - busy : boolean
+                                    </div>
+                                    <div>
+                                        - pausedFrame : int
+                                    </div>
+                                    <div>
+                                        - wasPlaying : boolean
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="646" y="325" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - clip : Clip...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 640 384 L 800 384" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="640" y="388" width="160" height="92" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 150px; height: 1px; padding-top: 395px; margin-left: 646px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 88px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    + play()
+                                    <div>
+                                        + applyVolume(volume)
+                                    </div>
+                                    <div>
+                                        + stop()
+                                    </div>
+                                    <div>
+                                        + pause()
+                                    </div>
+                                    <div>
+                                        + resume()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="646" y="407" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + play()...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 640 536 L 640 510 L 800 510 L 800 536" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 640 536 L 640 630 L 800 630 L 800 536" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 640 536 L 800 536" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 517px; margin-left: 641px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    AudioStreamPlayer
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="720" y="529" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        AudioStreamPlayer
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="640" y="536" width="160" height="44" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 150px; height: 1px; padding-top: 543px; margin-left: 646px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 40px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    - data : SourceDataLine
+                                    <div>
+                                        - stream : AudioInputStream
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="646" y="555" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - data : SourceDataLine...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 640 584 L 800 584" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="640" y="588" width="160" height="42" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 150px; height: 1px; padding-top: 595px; margin-left: 646px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 38px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    + streamLoop()
+                                    <div>
+                                        + stop()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="646" y="607" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + streamLoop()...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 580 528 L 633.63 528" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 638.88 528 L 631.88 531.5 L 633.63 528 L 631.88 524.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 565 298 L 633.63 298" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 638.88 298 L 631.88 301.5 L 633.63 298 L 631.88 294.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 630 200 L 630 215.06 Q 630 225.06 620 225.06 L 484.94 225.06 Q 474.94 225.06 474.94 234.35 L 474.94 243.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 474.94 248.88 L 471.44 241.88 L 474.94 243.63 L 478.44 241.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 630 200 L 630 440 Q 630 450 620 450 L 514.94 450 Q 504.94 450 504.94 460 L 504.94 473.63" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 504.94 478.88 L 501.44 471.88 L 504.94 473.63 L 508.44 471.88 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <path d="M 550 70 L 550 30 L 710 30 L 710 70" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 550 70 L 550 200 L 710 200 L 710 70" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 550 70 L 710 70" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 158px; height: 1px; padding-top: 37px; margin-left: 551px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    <div>
+                                        &lt;abstract&gt;
+                                    </div>
+                                    AudioPlayer
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="630" y="49" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        &lt;abstract&gt;AudioPlayer
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="550" y="70" width="160" height="44" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 150px; height: 1px; padding-top: 77px; margin-left: 556px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 40px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    - volume : float
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="556" y="89" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        - volume : float
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 550 118 L 710 118" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="550" y="122" width="160" height="78" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 150px; height: 1px; padding-top: 129px; margin-left: 556px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 74px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    + setVolume(float volume)
+                                    <div>
+                                        + stop()
+                                    </div>
+                                    <div>
+                                        + pause()
+                                    </div>
+                                    <div>
+                                        + resume()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="556" y="141" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + setVolume(float volume)...
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 0 96 L 0 70 L 140 70 L 140 96" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 0 96 L 0 180 L 140 180 L 140 96" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+            <path d="M 0 96 L 140 96" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 138px; height: 1px; padding-top: 77px; margin-left: 1px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: center; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">
+                                    AudioLoader
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="70" y="89" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px" text-anchor="middle" font-weight="bold">
+                        AudioLoader
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <rect x="0" y="96" width="140" height="34" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 130px; height: 1px; padding-top: 103px; margin-left: 6px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 30px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    <div>
+                                        <br/>
+                                    </div>
+                                    <div>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="6" y="115" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                    </text>
+                </switch>
+            </g>
+        </g>
+        <g>
+            <path d="M 0 134 L 140 134" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <rect x="0" y="138" width="140" height="42" fill="none" stroke="#000000" pointer-events="all" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
+        </g>
+        <g>
+            <g transform="translate(-0.5 -0.5)">
+                <switch>
+                    <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 130px; height: 1px; padding-top: 145px; margin-left: 6px;">
+                            <div style="box-sizing: border-box; font-size: 0; text-align: left; max-height: 38px; overflow: hidden; color: #000000; ">
+                                <div style="display: inline-block; font-size: 12px; font-family: &quot;Helvetica&quot;; color: light-dark(#000000, #FFFFFF); line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                    + loadAudioFiles()
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text x="6" y="157" fill="light-dark(#000000,#FFFFFF)" font-family="&quot;Helvetica&quot;" font-size="12px">
+                        + loadAudioFiles()
+                    </text>
+                </switch>
+            </g>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.drawio.com/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Text is not SVG - cannot display
+            </text>
+        </a>
+    </switch>
+</svg>

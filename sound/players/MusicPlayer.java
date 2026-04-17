@@ -9,18 +9,6 @@ public class MusicPlayer extends AudioPlayer {
     }
 
     @Override
-    public void mute() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mute'");
-    }
-
-    @Override
-    public void unmute() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'unmute'");
-    }
-
-    @Override
     public void stop() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'stop'");

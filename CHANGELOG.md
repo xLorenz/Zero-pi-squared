@@ -513,5 +513,3 @@ TODO: Implement MusicPlayer.
 > [For converting .mp3 to .wav](https://convertio.co/es/)
 >
 > [For getting cool sfx](https://pixabay.com/)
-
-![Diagram](sound/system.drawio.svg)
