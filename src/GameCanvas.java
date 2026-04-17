@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import player.*;
+import sound.AudioLoader;
 import world.effects.Explosion;
 import world.effects.ScreenShake;
 import world.terrain.Generator;
@@ -92,6 +93,8 @@ public class GameCanvas extends Canvas implements Runnable {
         this.addKeyListener(adapters.keyAdapter);
         this.addMouseListener(adapters.mouseAdapter);
         this.addMouseMotionListener(adapters.mouseMotionAdapter);
+
+        AudioLoader.loadAudioFiles();
 
         setUpGame();
     }

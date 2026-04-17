@@ -4,6 +4,7 @@ import particles.types.SimpleParticle;
 import physics.structures.Vector2;
 import player.Controller;
 import player.Controller.Key;
+import sound.AudioManager;
 import player.Player;
 
 public class DoubleJump extends Skill {
@@ -32,6 +33,7 @@ public class DoubleJump extends Skill {
                         1.5,
                         player.displayColor);
             }
+            AudioManager.playSfx("double_jump");
             ready = false;
             active = false;
             used = true;

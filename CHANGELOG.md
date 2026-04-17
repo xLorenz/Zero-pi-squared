@@ -456,3 +456,62 @@ Modify the CHANGELOG to follow MarkDown formatting properly.
 Fixed a bug in [physics.collisions.Collision] where a circle could hit the corner of two adjacent rects, getting incorrect impuse addition.
 
 Now Collision.circleRect() accounts for edge (corner) cases, returning a corner bounce only in a true 45º angle.
+
+## Audio System Implementation
+
+Implemented sound package.
+
+AudioManager is the main class. Works with AudioLoader and AudioAssetCache to carry out main system's funcionalities
+
+Load audio ( clips ) inside [AudioLoader.loadAudioFiles()]
+
+Calls [AudioAssetCache.loadClip()] and [AudioAssetCache.loadBundledIds()].
+
+loadClip() will accept an id (String) and a path (String), loading into AudioAssetCache.audioData ( HashMap ) and AudioAssetCache.format ( Hasmap ) the file's corresponding data.
+
+Then on [AudioManager.playSfx(id)], AudioManager.sfxPlayer (SfxPlayer) calls its play(id) method.
+
+It calls [AudioAssetCache.getClip()]:
+
+    public static Clip getClip(String id) {
+
+        if (bundledIds.containsKey(id)) {
+            ArrayList<String> list = new ArrayList<>(bundledIds.get(id));
+            id = list.get(rand.nextInt(list.size()));
+        }
+
+        byte[] data = audioData.get(id);
+        AudioFormat format = formats.get(id);
+
+        if (data == null || format == null) {
+            throw new IllegalArgumentException("Clip not loaded: " + id);
+        }
+        try {
+            Clip clip = AudioSystem.getClip();
+            clip.open(format, data, 0, data.length);
+            return clip;
+
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException("Failed to create clip: " + id);
+        }
+    }
+
+Retunrns a new [javax.sound.sampled.Clip] object, assigned to a free SfxChannel.clip. Then channel.applyVolume() and channel.play() are called.
+
+Currently programmed but not implemented pause and resume functionalities (inside AudioManager).
+
+> [!IMPORTANT]
+> All sfx files must be .WAV format.
+>
+> loadBundledIds(String id, List< String > list) <- List of ids, not path.
+
+TODO: Implement MusicPlayer.
+
+> [!TIP]
+> [For creating sound variants](https://vocalremover.org/pitch)
+>
+> [For converting .mp3 to .wav](https://convertio.co/es/)
+>
+> [For getting cool sfx](https://pixabay.com/)
+
+![Diagram](sound/system.drawio.svg)
