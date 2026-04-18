@@ -10,6 +10,7 @@ import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.Controller;
 import player.Controller.Key;
+import sound.AudioManager;
 import player.Player;
 import world.effects.ScreenShake;
 import world.terrain.Block;
@@ -129,6 +130,7 @@ public class BlockSield extends Skill {
     public void handleInputs(Controller c) {
         if (ready && triggerKey.singlePress) {
             active = true;
+            AudioManager.playMusic("menu_music_1", true, 2000, 4000);
         }
     }
 

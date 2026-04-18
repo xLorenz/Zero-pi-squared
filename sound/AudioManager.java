@@ -25,8 +25,20 @@ public class AudioManager {
         musicPlayer.play(id, loop);
     }
 
+    public static void playMusic(String id, boolean loop, int fadeInMs) {
+        musicPlayer.play(id, loop, fadeInMs);
+    }
+
+    public static void playMusic(String id, boolean loop, int fadeInMs, int fadeOutCurrentMs) {
+        musicPlayer.play(id, loop, fadeInMs, fadeOutCurrentMs);
+    }
+
     public static void stopMusic() {
         musicPlayer.stop();
+    }
+
+    public static void stopMusic(int fadeOutMs) {
+        musicPlayer.stop(fadeOutMs);
     }
 
     public static void pauseAll() {

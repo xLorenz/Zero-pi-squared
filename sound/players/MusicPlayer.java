@@ -15,6 +15,7 @@ public class MusicPlayer extends AudioPlayer {
     private boolean paused = false;
 
     private Thread crossfadeThread;
+    private AudioStreamPlayer pendingOutgoing = null;
 
     public MusicPlayer() {
     }
@@ -52,25 +53,24 @@ public class MusicPlayer extends AudioPlayer {
             return;
         }
 
-        AudioStreamPlayer outgoing = new AudioStreamPlayer();
-        outgoing.setVolume(streamPlayer.getVolume());
+        AudioStreamPlayer outgoing = this.streamPlayer;
+        double targetVolume = this.volume;
 
-        double outVolume = streamPlayer.getVolume();
-        streamPlayer.stop();
-        currentId = id;
+        AudioStreamPlayer incoming = new AudioStreamPlayer();
+        incoming.setVolume(0.0);
+        incoming.play(url, loop);
+
+        this.streamPlayer = incoming;
+        this.currentId = id;
         this.loop = loop;
         this.paused = false;
-        volume = outVolume;
-        streamPlayer.setVolume(0.0);
-        streamPlayer.play(url, loop);
-        streamPlayer.fadeIn(outVolume, fadeInMs);
+
+        pendingOutgoing = outgoing;
 
         crossfadeThread = new Thread(() -> {
-            outgoing.setVolume(outVolume);
-
-            URL outUrl = AudioAssetCache.getMusic(currentId.equals(id) ? id : (getCurrentTrack() == null ? id : id));
 
             outgoing.fadeOut(fadeOutCurrentMs);
+            incoming.fadeIn(targetVolume, fadeOutCurrentMs);
 
             try {
                 Thread.sleep(fadeOutCurrentMs + 200);
@@ -78,6 +78,7 @@ public class MusicPlayer extends AudioPlayer {
             }
 
             outgoing.stop();
+            pendingOutgoing = null;
         }, "music-crossfade-out");
         crossfadeThread.setDaemon(true);
         crossfadeThread.start();
@@ -153,6 +154,11 @@ public class MusicPlayer extends AudioPlayer {
     private void stopCrossfade() {
         if (crossfadeThread != null && crossfadeThread.isAlive()) {
             crossfadeThread.interrupt();
+        }
+
+        if (pendingOutgoing != null) {
+            pendingOutgoing.stop();
+            pendingOutgoing = null;
         }
     }
 
