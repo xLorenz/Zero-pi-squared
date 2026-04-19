@@ -9,6 +9,7 @@ import physics.objects.AreaCircle;
 import physics.objects.PhysicsObject;
 import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
+import sound.AudioLoader;
 import sound.AudioManager;
 
 public class Explosion extends AreaCircle {
@@ -61,7 +62,7 @@ public class Explosion extends AreaCircle {
         if (!exploded) {
             explode();
             emitParticles();
-            AudioManager.playSfx("explosion");
+            AudioManager.playSfx(AudioLoader.Clips.EXPLOSION);
             exploded = true;
         }
         handler.removeObject(this);

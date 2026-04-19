@@ -95,8 +95,6 @@ public class GameCanvas extends Canvas implements Runnable {
         this.addMouseListener(adapters.mouseAdapter);
         this.addMouseMotionListener(adapters.mouseMotionAdapter);
 
-        AudioLoader.loadAudioFiles();
-
         setUpGame();
     }
 
@@ -121,7 +119,7 @@ public class GameCanvas extends Canvas implements Runnable {
         player.pos.set(new Vector2(125 * handler.chunkDimension, 125 *
                 handler.chunkDimension));
 
-        AudioManager.playMusic("menu_music_0", true);
+        AudioManager.playMusic(AudioLoader.Music.MENU_MUSIC_0, true);
         AudioManager.setMusicVolume(0.5);
 
         // spawn test enemies

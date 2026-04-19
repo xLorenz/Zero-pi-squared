@@ -17,7 +17,13 @@ public class MusicPlayer extends AudioPlayer {
     private Thread crossfadeThread;
     private AudioStreamPlayer pendingOutgoing = null;
 
+    private MusicEventListener musicEventListener = null;
+
     public MusicPlayer() {
+    }
+
+    public void setMusicEventListener(MusicEventListener musicEventListener) {
+        this.musicEventListener = musicEventListener;
     }
 
     public void play(String id, boolean loop) {
@@ -37,6 +43,9 @@ public class MusicPlayer extends AudioPlayer {
 
         streamPlayer.setVolume(volume);
         streamPlayer.play(url, loop);
+
+        if(musicEventListener != null)
+            musicEventListener.onMusicStart(id);
     }
 
     public void play(String id, boolean loop, int fadeMs) {
@@ -83,11 +92,18 @@ public class MusicPlayer extends AudioPlayer {
         crossfadeThread.setDaemon(true);
         crossfadeThread.start();
 
+        if(musicEventListener != null)
+            musicEventListener.onMusicStart(id);
+
     }
 
     @Override
     public void stop() {
         streamPlayer.stop();
+
+        if(musicEventListener != null)
+            musicEventListener.onMusicEnd(currentId);
+
         currentId = null;
         paused = false;
     }
@@ -99,6 +115,8 @@ public class MusicPlayer extends AudioPlayer {
         stopCrossfade();
 
         streamPlayer.fadeOut(fadeMS);
+        if(musicEventListener != null)
+            musicEventListener.onMusicEnd(currentId);
 
         Thread cleanup = new Thread(() -> {
             try {
