@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import player.*;
+import sound.AudioLoader;
+import sound.AudioManager;
 import world.effects.Explosion;
 import world.effects.ScreenShake;
 import world.terrain.Generator;
@@ -116,6 +118,9 @@ public class GameCanvas extends Canvas implements Runnable {
 
         player.pos.set(new Vector2(125 * handler.chunkDimension, 125 *
                 handler.chunkDimension));
+
+        AudioManager.playMusic(AudioLoader.Music.MENU_MUSIC_0, true);
+        AudioManager.setMusicVolume(0.5);
 
         // spawn test enemies
         for (int i = 0; i < 10; i++) {

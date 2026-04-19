@@ -10,6 +10,8 @@ import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.skills.*;
 import player.weapons.Gun;
+import sound.AudioLoader;
+import sound.AudioManager;
 
 public class Player extends PhysicsBall {
 
@@ -97,6 +99,8 @@ public class Player extends PhysicsBall {
                 for (int i = 0; i < 20; i++) {
                     SimpleParticle.emit(new Vector2(pos.x, pos.y + radius));
                 }
+                supported = false;
+                AudioManager.playSfx(AudioLoader.Clips.JUMP);
                 // airBorneTimer = 0.3;
             }
         }
