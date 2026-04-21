@@ -68,8 +68,8 @@ public class AudioAssetCache {
                     AudioFormat.Encoding.PCM_SIGNED,
                     baseFormat.getSampleRate(),
                     16,
-                    baseFormat.getChannels(),
-                    baseFormat.getChannels() * 2,
+                    2, // force stereo for panning
+                    2 * 2, // force stereo for panning
                     baseFormat.getSampleRate(),
                     false);
 

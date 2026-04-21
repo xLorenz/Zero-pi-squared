@@ -42,6 +42,25 @@ public class SfxChannel {
             }
     }
 
+    public void applyPan(double pan) {
+        if (clip == null)
+            return;
+        pan = Math.max(-1.0, Math.min(1.0, pan));
+
+        if (clip.isControlSupported(FloatControl.Type.PAN)) {
+            FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.PAN);
+            control.setValue((float) pan);
+            return;
+        }
+
+        // fallback
+        if (clip.isControlSupported(FloatControl.Type.BALANCE)) {
+            FloatControl control = (FloatControl) clip.getControl(FloatControl.Type.BALANCE);
+            control.setValue((float) pan);
+            return;
+        }
+    }
+
     public void setClip(Clip clip) {
         this.clip = clip;
     }

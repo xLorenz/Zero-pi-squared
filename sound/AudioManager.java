@@ -1,5 +1,6 @@
 package sound;
 
+import physics.structures.Vector2;
 import sound.players.MusicPlayer;
 import sound.players.SfxPlayer;
 
@@ -14,11 +15,53 @@ public class AudioManager {
 
     private static boolean paused = false;
 
+    public static volatile Vector2 listenerPosition = new Vector2();
+    public static double minDistance = 250.0;
+    public static double maxDistance = 2000.0;
+
     public AudioManager() {
     }
 
     public static void playSfx(String id) {
         sfxPlayer.play(id);
+    }
+
+    public static void playSfx(String id, Vector2 origin) {
+        double mult = computeAttenuation(origin);
+        double pan = computePanning(origin);
+        if (mult != -1)
+            sfxPlayer.play(id, mult, pan);
+    }
+
+    private static double computeAttenuation(Vector2 pos) {
+        Vector2 lp = listenerPosition;
+        double distance = lp.sub(pos).length();
+
+        if (distance >= maxDistance) {
+            return -1;
+        }
+        double attenuation;
+        if (distance <= minDistance) {
+            attenuation = 1.0;
+        } else {
+            attenuation = minDistance / distance;
+        }
+        return attenuation;
+    }
+
+    private static double computePanning(Vector2 pos) {
+        Vector2 lp = listenerPosition;
+        double dx = pos.x - lp.x;
+        double pan = dx / maxDistance;
+        pan = Math.max(-1.0, Math.min(1.0, pan));
+
+        pan = Math.signum(pan) * Math.pow(Math.abs(pan), 0.7); // smooth
+
+        return pan;
+    }
+
+    public static void setListenerPosition(Vector2 listenerPosition) {
+        AudioManager.listenerPosition = new Vector2(listenerPosition);
     }
 
     public static void playMusic(String id, boolean loop) {

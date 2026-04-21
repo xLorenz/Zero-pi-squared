@@ -68,6 +68,7 @@ public class Player extends PhysicsBall {
 
     @Override
     public void update(double dt) {
+        AudioManager.setListenerPosition(pos);
 
         updateTimers(dt);
 

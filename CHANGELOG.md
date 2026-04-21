@@ -513,3 +513,15 @@ TODO: Implement MusicPlayer.
 > [For converting .mp3 to .wav](https://convertio.co/es/)
 >
 > [For getting cool sfx](https://pixabay.com/)
+
+## Spatial Audio
+
+Not spatial audio.
+
+Implemented [AudioManager.playSfx(String id, Vector2 origin)], a method that calculates audio attenuation (based on distance) and audio panning (based on x difference) for a [Vector2 AudioManager.listenerPosition].
+
+Added [SfxPlayer.play(String id, double volumeMult)] and [SfxPlayer.play(String id, double volumeMult, double pan)] to play clips based on individual volume and stereo panning.
+
+Addded [SfxChannel.applyPan(double pan)] to apply pan to a specific clip.
+
+Explosions now play with stereo panning.

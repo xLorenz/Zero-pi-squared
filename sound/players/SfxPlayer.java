@@ -47,6 +47,55 @@ public class SfxPlayer extends AudioPlayer {
 
     }
 
+    public void play(String id, double volumeMultiplier) {
+        // get free channel
+        SfxChannel channel = findFreeChannel();
+
+        // if none, fallback
+        if (channel == null) {
+            channel = stealChannel();
+            if (channel == null) {
+                return;
+            }
+        }
+
+        // get audio data
+        Clip clip = AudioAssetCache.getClip(id);
+        if (clip == null)
+            return;
+
+        // assign to channel
+        channel.setClip(clip);
+        channel.applyVolume(volume * volumeMultiplier);
+        channel.play();
+
+    }
+
+    public void play(String id, double volumeMultiplier, double pan) {
+        // get free channel
+        SfxChannel channel = findFreeChannel();
+
+        // if none, fallback
+        if (channel == null) {
+            channel = stealChannel();
+            if (channel == null) {
+                return;
+            }
+        }
+
+        // get audio data
+        Clip clip = AudioAssetCache.getClip(id);
+        if (clip == null)
+            return;
+
+        // assign to channel
+        channel.setClip(clip);
+        channel.applyVolume(volume * volumeMultiplier);
+        channel.applyPan(pan);
+        channel.play();
+
+    }
+
     private SfxChannel stealChannel() {
         for (SfxChannel c : channels) {
             if (c.isBusy()) {

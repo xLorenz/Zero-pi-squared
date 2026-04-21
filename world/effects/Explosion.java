@@ -62,7 +62,7 @@ public class Explosion extends AreaCircle {
         if (!exploded) {
             explode();
             emitParticles();
-            AudioManager.playSfx(AudioLoader.Clips.EXPLOSION);
+            AudioManager.playSfx(AudioLoader.Clips.EXPLOSION, pos);
             exploded = true;
         }
         handler.removeObject(this);
