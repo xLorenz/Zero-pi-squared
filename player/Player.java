@@ -10,6 +10,7 @@ import physics.process.PhysicsHandler;
 import physics.structures.Vector2;
 import player.skills.*;
 import player.weapons.Gun;
+import player.weapons.Melee;
 import sound.AudioLoader;
 import sound.AudioManager;
 
@@ -43,7 +44,7 @@ public class Player extends PhysicsBall {
                 new Grenade(controller.keys.x, handler),
                 new BlockSield(controller.keys.c, handler)));
 
-        this.gun = new Gun(controller.mouse.left, this, handler);
+        this.gun = new Melee(controller.mouse.left, this, handler);
 
         this.handler = handler;
 

@@ -525,3 +525,12 @@ Added [SfxPlayer.play(String id, double volumeMult)] and [SfxPlayer.play(String 
 Addded [SfxChannel.applyPan(double pan)] to apply pan to a specific clip.
 
 Explosions now play with stereo panning.
+
+## Melee Weapons
+
+Added new [Melee extends Gun] class.
+Added new [MeleeHit extends AreaCircle] class.
+
+Functions like a gun, instead of creating bullets, it creates an AreaCircle, that deals damage onCollision() and then deletes itself.
+
+The Melee weapon add a "hit combo" system, where the third hit deals double damage if you keep hitting. Melee.hitVfx() gives visual feedback on the hitLoopStage.
