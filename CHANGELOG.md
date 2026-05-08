@@ -534,3 +534,7 @@ Added new [MeleeHit extends AreaCircle] class.
 Functions like a gun, instead of creating bullets, it creates an AreaCircle, that deals damage onCollision() and then deletes itself.
 
 The Melee weapon add a "hit combo" system, where the third hit deals double damage if you keep hitting. Melee.hitVfx() gives visual feedback on the hitLoopStage.
+
+## Lunge Skill
+
+Added new Lunge skill. When triggered, the player lunges forward in whichever direction they are moving. The speed is the player's base speed * 0.75.

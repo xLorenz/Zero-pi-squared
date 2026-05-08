@@ -42,7 +42,8 @@ public class Player extends PhysicsBall {
                 new DoubleJump(controller.keys.space),
                 new PlaceBlock(controller.mouse.right, handler),
                 new Grenade(controller.keys.x, handler),
-                new BlockSield(controller.keys.c, handler)));
+                new BlockSield(controller.keys.c, handler),
+                new Lunge(controller.keys.shift)));
 
         this.gun = new Melee(controller.mouse.left, this, handler);
 
